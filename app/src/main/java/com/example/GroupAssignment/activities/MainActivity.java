@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Context c = view.getContext();
+                
                 Intent intent = new Intent(c, QuizActivity.class);
                 c.startActivity(intent);
 
