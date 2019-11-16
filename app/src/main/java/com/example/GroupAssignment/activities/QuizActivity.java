@@ -1,6 +1,7 @@
 package com.example.GroupAssignment.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.GroupAssignment.QuestionDatabase;
 import com.example.GroupAssignment.R;
@@ -33,6 +35,8 @@ public class QuizActivity extends AppCompatActivity {
     int score = 0;
     int questionNum = 0;
     Question currentQuestion;
+
+    private ArrayList<Integer> scoreHistoryList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,10 +72,36 @@ public class QuizActivity extends AppCompatActivity {
                     //TODO: display api?
                 }
                 answer.setChecked(false);
-                questionNum++;
-                currentQuestion = db.questionDao().getQuestion(questionNum);
+                Toast.makeText(getApplicationContext(), Integer.toString(questionNum), Toast.LENGTH_LONG).show();
 
-                setQuestion(currentQuestion, score);
+                // Below code is to make sure that the button text changes to finish quiz on final question, and to
+                // record the final score in an ArrayList
+                if (questionNum < getQuestionList().size() - 2) {
+                    questionNum++;
+                    currentQuestion = db.questionDao().getQuestion(questionNum);
+
+                    setQuestion(currentQuestion, score);
+                }
+                else if (questionNum == getQuestionList().size() - 2) {
+                    questionNum++;
+                    currentQuestion = db.questionDao().getQuestion(questionNum);
+
+                    setQuestion(currentQuestion, score);
+                    Toast.makeText(getApplicationContext(), "HooooooooHOo", Toast.LENGTH_LONG).show();
+
+                    nextBtn.setText("Finish Quiz");
+                }
+                else {
+                    scoreHistoryList.add(score);
+                    //Toast to check for score at the end
+                    Toast.makeText(getApplicationContext(), Integer.toString(score), Toast.LENGTH_LONG).show();
+                    //TODO: Maybe have code here that does something after user finishes quiz (not decided yet)
+                    // either changing to another fragment or whatever
+
+                    //TODO Right now after pressing the last button (Finish Quiz) it just returns to the original activity
+                    // We're probably putting all these into fragments right, make sure it doesnt happen again during fragments
+                }
+
 
             }
         });
@@ -170,4 +200,12 @@ public class QuizActivity extends AppCompatActivity {
 
         return questionList;
     }
+
+    public ArrayList<Integer> getScoreHistory() {
+        return this.scoreHistoryList;
+    }
+
+
+
+
 }
