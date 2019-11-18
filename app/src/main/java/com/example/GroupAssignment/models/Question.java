@@ -20,7 +20,7 @@ public class Question {
     //url for DnD api used to explain answer
     private String url;
 
-    public Question(){}
+//    public Question(){}
 
     public Question(int id, String question, String optionA, String optionB, String optionC, String answer, String url) {
         this.id = id;
