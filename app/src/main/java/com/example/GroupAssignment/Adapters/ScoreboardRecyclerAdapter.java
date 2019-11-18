@@ -37,7 +37,7 @@ public class ScoreboardRecyclerAdapter extends RecyclerView.Adapter<ScoreboardRe
     public ScoreboardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.scoreboardlayout, parent, false);
         ScoreboardViewHolder scoreboardViewHolder = new ScoreboardViewHolder(view);
-        return null;
+        return scoreboardViewHolder;
     }
 
     @Override
