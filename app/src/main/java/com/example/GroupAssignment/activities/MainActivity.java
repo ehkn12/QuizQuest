@@ -15,6 +15,7 @@ import com.example.GroupAssignment.R;
 public class MainActivity extends AppCompatActivity {
 
     Button startBtn;
+    Button apiTestButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,18 @@ public class MainActivity extends AppCompatActivity {
                 Context c = view.getContext();
 
                 Intent intent = new Intent(c, QuizActivity.class);
+                c.startActivity(intent);
+
+            }
+        });
+
+        apiTestButton = findViewById(R.id.apiTestButton);
+        apiTestButton.setOnClickListener( new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Context c = view.getContext();
+                Intent intent = new Intent(c, TestActivity.class);
                 c.startActivity(intent);
 
             }
