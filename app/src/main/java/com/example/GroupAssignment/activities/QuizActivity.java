@@ -136,7 +136,7 @@ public class QuizActivity extends AppCompatActivity {
 
     public List<Question> getQuestionList(){
         //TODO:: to put this somewhere that's not here
-        //TODO:: add url from api
+        //TODO:: add url from api, not sure we can find relevant data in our APIs for these questions
         //questions and answers from https://www.sageadvice.eu/2017/11/27/trivia-quiz-on-5th-edition-dd-rules/
         List<Question> questionList = new ArrayList<>();
         questionList.add(0, new Question(0,
