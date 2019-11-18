@@ -13,6 +13,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.GroupAssignment.AsyncTask.AsyncTaskDelegate;
+import com.example.GroupAssignment.AsyncTask.QuestionInsertAsyncTask;
 import com.example.GroupAssignment.QuestionDatabase;
 import com.example.GroupAssignment.R;
 import com.example.GroupAssignment.models.Question;
@@ -21,6 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
+
+    private QuizActivity quizActivity;
 
 
     TextView scoreText;
@@ -55,8 +59,16 @@ public class QuizActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
 
+        //TODO: After everything else is done, we can convert the QuestionDB stuff into the AsyncTaskDelegates etc
+        // Don't uncomment this just yet, the entire part below will have to change but im not sure yet how so
+/*      QuestionInsertAsyncTask questionInsertAsyncTask = new QuestionInsertAsyncTask();
+        questionInsertAsyncTask.setQuestionDatabase(db);
+        questionInsertAsyncTask.setDelegate((AsyncTaskDelegate) quizActivity);
+        questionInsertAsyncTask.execute(getQuestionList());*/
+
 
         db.questionDao().insertAll(getQuestionList());
+
         currentQuestion = db.questionDao().getQuestion(questionNum);
         setQuestion(currentQuestion, score);
 
@@ -124,7 +136,7 @@ public class QuizActivity extends AppCompatActivity {
 
     public List<Question> getQuestionList(){
         //TODO:: to put this somewhere that's not here
-        //TODO:: add url from api
+        //TODO:: add url from api, not sure we can find relevant data in our APIs for these questions
         //questions and answers from https://www.sageadvice.eu/2017/11/27/trivia-quiz-on-5th-edition-dd-rules/
         List<Question> questionList = new ArrayList<>();
         questionList.add(0, new Question(0,

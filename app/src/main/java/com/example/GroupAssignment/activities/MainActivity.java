@@ -23,10 +23,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+  edits-alison
 //    Button startBtn;
 
     BottomNavigationView bottomNavigationView;
 
+=======
+    Button startBtn;
+    Button apiTestButton;
+  master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +57,18 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 return false;
+            }
+        });
+
+        apiTestButton = findViewById(R.id.apiTestButton);
+        apiTestButton.setOnClickListener( new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Context c = view.getContext();
+                Intent intent = new Intent(c, TestActivity.class);
+                c.startActivity(intent);
+
             }
         });
     }
