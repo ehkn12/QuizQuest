@@ -7,6 +7,12 @@ package com.example.GroupAssignment.models;
 
 // SO UH YEH THIS CLASS IS GOING TO BE ENORMOUS, TODO currently this class contains properties for Weapons and Spells <-- update it when more are added
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "results")
 public class Results
 {
     //The properties below are for Spells
@@ -35,7 +41,8 @@ public class Results
 
     private String document__slug;
 
-    // If we want to put Results in a RoomDB should we use name as the primary key?
+    @NonNull
+    @PrimaryKey
     private String name;
 
     private String higher_level;
@@ -65,7 +72,7 @@ public class Results
     private String weight;
 
     private String category;
-
+    @Ignore
     private String[] properties;
 
 
