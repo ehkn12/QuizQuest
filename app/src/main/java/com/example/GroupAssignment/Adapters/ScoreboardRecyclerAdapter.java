@@ -42,7 +42,7 @@ public class ScoreboardRecyclerAdapter extends RecyclerView.Adapter<ScoreboardRe
 
     @Override
     public void onBindViewHolder(@NonNull ScoreboardViewHolder holder, int position) {
-        holder.score.setText(scoreArrayList.get(position));
+        holder.score.setText(Integer.toString(scoreArrayList.get(position)));
     }
 
 
