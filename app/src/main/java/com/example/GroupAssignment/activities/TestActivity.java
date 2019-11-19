@@ -13,7 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.GroupAssignment.Adapters.SpellRecyclerAdapter;
+import com.example.GroupAssignment.Adapters.InfoNameRecyclerAdapter;
 import com.example.GroupAssignment.AsyncTask.AsyncTaskDelegate;
 import com.example.GroupAssignment.R;
 import com.example.GroupAssignment.models.DndInfoOverview;
@@ -29,6 +29,9 @@ public class TestActivity extends AppCompatActivity implements AsyncTaskDelegate
     private RecyclerView.LayoutManager spellLayoutManager;
     private RecyclerView.Adapter spellAdapter;
 
+    private String spellURL;
+    private String weaponURL;
+
     private List<Results> spellList;
 
     @Override
@@ -37,6 +40,9 @@ public class TestActivity extends AppCompatActivity implements AsyncTaskDelegate
         setContentView(R.layout.activity_test);
 
         spellRecycler = findViewById(R.id.testRecyclerView);
+
+        spellURL = "Spells";
+        weaponURL = "Weapons";
 
         spellLayoutManager = new LinearLayoutManager(getApplicationContext());
         spellRecycler.setLayoutManager(spellLayoutManager);
@@ -58,6 +64,7 @@ public class TestActivity extends AppCompatActivity implements AsyncTaskDelegate
 
     public void setSpellRecycler() {
 
+
         final RequestQueue queue = Volley.newRequestQueue(TestActivity.this);
 
         String url = "https://api.open5e.com/spells/?format=json&limit=10000";
@@ -67,7 +74,7 @@ public class TestActivity extends AppCompatActivity implements AsyncTaskDelegate
             @Override
             public void onResponse(String response) {
 
-                spellRecycler = findViewById(R.id.testRecyclerView);
+/*                spellRecycler = findViewById(R.id.testRecyclerView);
 
                 spellLayoutManager = new LinearLayoutManager(getApplicationContext());
                 spellRecycler.setLayoutManager(spellLayoutManager);
@@ -77,8 +84,8 @@ public class TestActivity extends AppCompatActivity implements AsyncTaskDelegate
                 Results[] spells = dndInfoOverview.getSpells();
                 spellList = Arrays.asList(spells);
 
-                spellAdapter = new SpellRecyclerAdapter(spellList);
-                spellRecycler.setAdapter(spellAdapter);
+                spellAdapter = new InfoNameRecyclerAdapter(spellList);
+                spellRecycler.setAdapter(spellAdapter);*/
 
             }
         };
