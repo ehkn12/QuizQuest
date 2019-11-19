@@ -52,7 +52,7 @@ public class InformationFragment extends Fragment {
 
         informationAdapter = new InformationRecyclerAdapter(infoList);
         informationRecycler.setAdapter(informationAdapter);
-        
+
         return view;
     }
 
