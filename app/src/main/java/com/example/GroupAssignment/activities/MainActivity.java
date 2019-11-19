@@ -23,6 +23,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+edits-alison
 
 
     BottomNavigationView bottomNavigationView;
@@ -30,6 +31,21 @@ public class MainActivity extends AppCompatActivity {
     Button startBtn;
     Button apiTestButton;
 
+=======
+/*
+  edits-alison
+*/
+//    Button startBtn;
+
+    BottomNavigationView bottomNavigationView;
+
+/*=======*/
+    Button startBtn;
+    Button apiTestButton;
+/*
+  master
+*/
+master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

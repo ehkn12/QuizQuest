@@ -1,84 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/spells"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Spells" />
-
-    <TextView
-        android:id="@+id/monsters"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Monsters" />
-
-    <TextView
-        android:id="@+id/documents"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Documents" />
-
-    <TextView
-        android:id="@+id/backgrounds"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Backgrounds" />
-
-    <TextView
-        android:id="@+id/planes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Planes" />
-
-    <TextView
-        android:id="@+id/sections"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sections" />
-
-    <TextView
-        android:id="@+id/feats"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Feats" />
-
-    <TextView
-        android:id="@+id/conditions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Conditions" />
-
-    <TextView
-        android:id="@+id/races"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Races" />
-
-    <TextView
-        android:id="@+id/classes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Classes" />
-
-    <TextView
-        android:id="@+id/magic_items"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Magic Items" />
-
-    <TextView
-        android:id="@+id/weapons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Weapons" />
-
-    <TextView
-        android:id="@+id/search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@android:string/search_go" />
-</LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/infoListRecycler"
+        android:layout_width="420dp"
+        android:layout_height="589dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

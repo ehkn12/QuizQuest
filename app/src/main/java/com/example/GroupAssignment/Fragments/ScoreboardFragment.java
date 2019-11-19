@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.Toast;
+
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -37,18 +36,17 @@ public class ScoreboardFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_scoreboard, container, false);
 
-        scoreArrayList = qa.getScoreHistory();
-        // This toast is to make sure that the scoreArrayList actually contains something, otherwise we'll have to use static stuff
-        // If it works uncomment the stuff below the Toast, as that sets up the recyclerView
-        Toast.makeText(rootView.getContext(), Integer.toString(scoreArrayList.size()), Toast.LENGTH_LONG).show();
+        //TODO currently uses static method in QuizActivity not sure how to improve on that
+        scoreArrayList = QuizActivity.getScoreHistory();
 
-/*        RecyclerView scoreBoardRecycler = rootView.findViewById(R.id.scoreBoardRecyclerView);
+
+        RecyclerView scoreBoardRecycler = rootView.findViewById(R.id.scoreBoardRecyclerView);
 
         scoreBoardLayoutManager = new LinearLayoutManager(rootView.getContext());
         scoreBoardRecycler.setLayoutManager(scoreBoardLayoutManager);
 
         scoreBoardAdapter = new ScoreboardRecyclerAdapter(scoreArrayList);
-        scoreBoardRecycler.setAdapter(scoreBoardAdapter);*/
+        scoreBoardRecycler.setAdapter(scoreBoardAdapter);
 
 
 

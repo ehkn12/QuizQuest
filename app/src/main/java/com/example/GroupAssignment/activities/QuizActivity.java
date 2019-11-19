@@ -40,7 +40,7 @@ public class QuizActivity extends AppCompatActivity {
     int questionNum = 0;
     Question currentQuestion;
 
-    private ArrayList<Integer> scoreHistoryList = new ArrayList<>();
+    public static ArrayList<Integer> scoreHistoryList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -213,8 +213,8 @@ public class QuizActivity extends AppCompatActivity {
         return questionList;
     }
 
-    public ArrayList<Integer> getScoreHistory() {
-        return this.scoreHistoryList;
+    public static ArrayList<Integer> getScoreHistory() {
+        return scoreHistoryList;
     }
 
 
