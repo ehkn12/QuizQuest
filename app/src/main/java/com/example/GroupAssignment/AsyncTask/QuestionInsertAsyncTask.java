@@ -3,7 +3,7 @@ package com.example.GroupAssignment.AsyncTask;
 import android.os.AsyncTask;
 
 import com.example.GroupAssignment.QuestionDatabase;
-import com.example.GroupAssignment.models.Question;
+import com.example.GroupAssignment.Models.Question;
 
 import java.util.List;
 

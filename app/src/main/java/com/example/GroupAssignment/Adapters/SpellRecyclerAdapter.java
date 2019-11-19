@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.GroupAssignment.R;
-import com.example.GroupAssignment.models.Results;
+import com.example.GroupAssignment.Models.Results;
 
 import java.util.List;
 

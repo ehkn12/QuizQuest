@@ -1,4 +1,4 @@
-package com.example.GroupAssignment.models;
+package com.example.GroupAssignment.Models;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;

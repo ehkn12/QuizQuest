@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.GroupAssignment.Adapters.ScoreboardRecyclerAdapter;
 import com.example.GroupAssignment.R;
-import com.example.GroupAssignment.activities.QuizActivity;
+import com.example.GroupAssignment.Activities.QuizActivity;
 
 import java.util.ArrayList;
 

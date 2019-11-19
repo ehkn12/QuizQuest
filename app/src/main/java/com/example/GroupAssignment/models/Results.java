@@ -1,4 +1,4 @@
-package com.example.GroupAssignment.models;
+package com.example.GroupAssignment.Models;
 
 
 // This class contains all the possible responses obtained from the API, each different URL always has Results array of objects
@@ -35,6 +35,8 @@ public class Results
 
     private String document__slug;
 
+    private String text;
+
     // If we want to put Results in a RoomDB should we use name as the primary key?
     private String name;
 
@@ -47,6 +49,8 @@ public class Results
     private String document__title;
 
     private String slug;
+
+    private String route;
 
 
     // The properties below are for Weapons, weapons have some similar properties as Spells, like name and document stuff.
@@ -355,5 +359,19 @@ public class Results
         this.desc = desc;
     }
 
+    public String getRoute() {
+        return route;
+    }
 
+    public void setRoute(String route) {
+        this.route = route;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 }

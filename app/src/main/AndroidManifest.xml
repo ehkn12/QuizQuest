@@ -12,9 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.TestActivity"></activity>
-        <activity android:name=".activities.QuizActivity" />
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".Activities.TestActivity"></activity>
+        <activity android:name=".Activities.QuizActivity" />
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

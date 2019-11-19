@@ -1,4 +1,4 @@
-package com.example.GroupAssignment.activities;
+package com.example.GroupAssignment.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,8 +16,8 @@ import com.android.volley.toolbox.Volley;
 import com.example.GroupAssignment.Adapters.SpellRecyclerAdapter;
 import com.example.GroupAssignment.AsyncTask.AsyncTaskDelegate;
 import com.example.GroupAssignment.R;
-import com.example.GroupAssignment.models.DndInfoOverview;
-import com.example.GroupAssignment.models.Results;
+import com.example.GroupAssignment.Models.DndInfoOverview;
+import com.example.GroupAssignment.Models.Results;
 import com.google.gson.Gson;
 
 import java.util.Arrays;

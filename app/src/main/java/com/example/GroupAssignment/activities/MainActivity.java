@@ -1,4 +1,4 @@
-package com.example.GroupAssignment.activities;
+package com.example.GroupAssignment.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,20 +19,20 @@ import android.widget.RadioGroup;
 import com.example.GroupAssignment.Fragments.InformationFragment;
 import com.example.GroupAssignment.Fragments.QuizFragment;
 import com.example.GroupAssignment.Fragments.ScoreboardFragment;
+import com.example.GroupAssignment.Fragments.SearchRecyclerFragment;
 import com.example.GroupAssignment.R;
+import com.example.GroupAssignment.Activities.TestActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SearchRecyclerFragment.OnFragmentInteractionListener {
 
-  edits-alison
+
 //    Button startBtn;
 
     BottomNavigationView bottomNavigationView;
 
-=======
     Button startBtn;
     Button apiTestButton;
-  master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,29 +40,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.navigation_view);
+        final Fragment quizFragment = new QuizFragment();
+        final Fragment scoreboardFragment = new ScoreboardFragment();
+        final Fragment searchFragment = new SearchRecyclerFragment();
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                if (menuItem.getItemId() == R.id.navigation_quiz) {
-                    Fragment fragment = new QuizFragment();
-                    swapFragment(fragment);
-                    return true;
-                } else if (menuItem.getItemId() == R.id.navigation_scoreboard) {
-                    Fragment fragment = new ScoreboardFragment();
-                    swapFragment(fragment);
-                    return true;
-                } else if (menuItem.getItemId() == R.id.navigation_information) {
-                    Fragment fragment = new InformationFragment();
-                    swapFragment(fragment);
-                    return true;
+                switch (menuItem.getItemId()) {
+                    case R.id.navigation_quiz:
+                        swapFragment(quizFragment);
+                        break;
+                    case R.id.navigation_scoreboard:
+                        swapFragment(scoreboardFragment);
+                        break;
+                    case R.id.navigation_information:
+                        swapFragment(searchFragment);
+                        break;
                 }
+
                 return false;
             }
         });
 
         apiTestButton = findViewById(R.id.apiTestButton);
-        apiTestButton.setOnClickListener( new View.OnClickListener(){
+        apiTestButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -72,25 +75,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     private void swapFragment(Fragment fragment) {
-        FragmentManager fragmentManager =  getSupportFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment_layout, fragment);
         fragmentTransaction.commit();
     }
+
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
 }
 
 
-
-//        startBtn = findViewById(R.id.startButton);
-//        startBtn.setOnClickListener( new View.OnClickListener(){
-//
-//            @Override
-//            public void onClick(View view) {
-//                Context c = view.getContext();
-//
-//                Intent intent = new Intent(c, QuizActivity.class);
-//                c.startActivity(intent);
-//
-//            }
-//        });

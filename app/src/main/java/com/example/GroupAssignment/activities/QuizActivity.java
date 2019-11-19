@@ -1,4 +1,4 @@
-package com.example.GroupAssignment.activities;
+package com.example.GroupAssignment.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -17,7 +17,7 @@ import com.example.GroupAssignment.AsyncTask.AsyncTaskDelegate;
 import com.example.GroupAssignment.AsyncTask.QuestionInsertAsyncTask;
 import com.example.GroupAssignment.QuestionDatabase;
 import com.example.GroupAssignment.R;
-import com.example.GroupAssignment.models.Question;
+import com.example.GroupAssignment.Models.Question;
 
 import java.util.ArrayList;
 import java.util.List;

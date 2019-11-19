@@ -7,7 +7,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.GroupAssignment.models.Question;
+import com.example.GroupAssignment.Models.Question;
 
 @Database(entities = {Question.class}, version = 1)
 public abstract class QuestionDatabase extends RoomDatabase {

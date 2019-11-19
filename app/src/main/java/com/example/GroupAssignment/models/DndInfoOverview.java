@@ -1,6 +1,7 @@
-package com.example.GroupAssignment.models;
+package com.example.GroupAssignment.Models;
 
 import com.google.gson.annotations.SerializedName;
+import com.example.GroupAssignment.Models.Results;
 
 
 public class DndInfoOverview

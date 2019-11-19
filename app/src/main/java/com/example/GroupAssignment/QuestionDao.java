@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.GroupAssignment.models.Question;
+import com.example.GroupAssignment.Models.Question;
 
 import java.util.List;
 
