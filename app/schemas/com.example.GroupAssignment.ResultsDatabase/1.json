@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "d5e99baa5b0a2965ccc22e28e4130bc7",
+    "identityHash": "2aa32aac8de8a0f47faae9c8db1ff4fc",
     "entities": [
       {
         "tableName": "results",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`components` TEXT, `ritual` TEXT, `level` TEXT, `document__license_url` TEXT, `range` TEXT, `circles` TEXT, `concentration` TEXT, `duration` TEXT, `archetype` TEXT, `material` TEXT, `school` TEXT, `document__slug` TEXT, `name` TEXT NOT NULL, `higher_level` TEXT, `level_int` TEXT, `page` TEXT, `document__title` TEXT, `slug` TEXT, `casting_time` TEXT, `dnd_class` TEXT, `desc` TEXT, `damage_type` TEXT, `cost` TEXT, `damage_dice` TEXT, `weight` TEXT, `category` TEXT, PRIMARY KEY(`name`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`components` TEXT, `ritual` TEXT, `level` TEXT, `document__license_url` TEXT, `range` TEXT, `circles` TEXT, `concentration` TEXT, `duration` TEXT, `archetype` TEXT, `material` TEXT, `school` TEXT, `document__slug` TEXT, `name` TEXT NOT NULL, `higher_level` TEXT, `level_int` TEXT, `page` TEXT, `document__title` TEXT, `slug` TEXT, `route` TEXT, `casting_time` TEXT, `dnd_class` TEXT, `desc` TEXT, `damage_type` TEXT, `cost` TEXT, `damage_dice` TEXT, `weight` TEXT, `category` TEXT, PRIMARY KEY(`name`))",
         "fields": [
           {
             "fieldPath": "components",
@@ -117,6 +117,12 @@
             "notNull": false
           },
           {
+            "fieldPath": "route",
+            "columnName": "route",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
             "fieldPath": "casting_time",
             "columnName": "casting_time",
             "affinity": "TEXT",
@@ -178,7 +184,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd5e99baa5b0a2965ccc22e28e4130bc7')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2aa32aac8de8a0f47faae9c8db1ff4fc')"
     ]
   }
 }

@@ -17,19 +17,19 @@ public class Question {
     private String optionC;
     private String answer;
 
-    //url for DnD api used to explain answer
-    private String url;
+    //hint if answer is wrong
+    private String hint;
 
 //    public Question(){}
 
-    public Question(int id, String question, String optionA, String optionB, String optionC, String answer, String url) {
+    public Question(int id, String question, String optionA, String optionB, String optionC, String answer, String hint) {
         this.id = id;
         this.question = question;
         this.optionA = optionA;
         this.optionB = optionB;
         this.optionC = optionC;
         this.answer = answer;
-        this.url = url;
+        this.hint = hint;
     }
 
     public int getId() {
@@ -80,11 +80,11 @@ public class Question {
         this.answer = answer;
     }
 
-    public String getUrl() {
-        return url;
+    public String getHint() {
+        return hint;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setHint(String hint) {
+        this.hint = hint;
     }
 }

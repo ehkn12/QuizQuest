@@ -1,7 +1,6 @@
 package com.example.GroupAssignment.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,8 +12,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.GroupAssignment.AsyncTask.AsyncTaskDelegate;
-import com.example.GroupAssignment.AsyncTask.QuestionInsertAsyncTask;
 import com.example.GroupAssignment.QuestionDatabase;
 import com.example.GroupAssignment.R;
 import com.example.GroupAssignment.models.Question;
@@ -27,14 +24,16 @@ public class QuizActivity extends AppCompatActivity {
     private QuizActivity quizActivity;
 
 
-    TextView scoreText;
-    TextView questionText;
-    RadioButton optionA;
-    RadioButton optionB;
-    RadioButton optionC;
-    Button nextBtn;
+    private TextView scoreText;
+    private TextView questionText;
+    private RadioButton optionA;
+    private RadioButton optionB;
+    private RadioButton optionC;
+    private Button nextBtn;
+    private View hintInclude;
+    private TextView hintText;
 
-    QuestionDatabase db;
+    private QuestionDatabase db;
 
     int score = 0;
     int questionNum = 0;
@@ -47,6 +46,9 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
         LinearLayout quizLinearLayout = findViewById(R.id.quizLinearLayout);
+        hintInclude = findViewById(R.id.hint_include);
+        hintInclude.setVisibility(View.INVISIBLE);
+        hintText = hintInclude.findViewById(R.id.hint_text);
         db = QuestionDatabase.getInstance(quizLinearLayout.getContext());
 
         questionText = quizLinearLayout.findViewById(R.id.quizQuestion);
@@ -79,9 +81,13 @@ public class QuizActivity extends AppCompatActivity {
                 RadioGroup radioGroup = (RadioGroup)findViewById(R.id.quizOptions);
                 RadioButton answer = (RadioButton)findViewById(radioGroup.getCheckedRadioButtonId());
                 if (currentQuestion.getAnswer().equals(answer.getText())){
+                    hintInclude.setVisibility(View.INVISIBLE);
                     score++;
                 } else {
-                    //TODO: display api?
+                   if(currentQuestion.getHint() != ""){
+                       hintText.setText(currentQuestion.getHint());
+                       hintInclude.setVisibility(View.VISIBLE);
+                   }
                 }
                 answer.setChecked(false);
                 Toast.makeText(getApplicationContext(), Integer.toString(questionNum), Toast.LENGTH_LONG).show();
@@ -145,28 +151,28 @@ public class QuizActivity extends AppCompatActivity {
                 "Yes, but fire spells deal no damage.",
                 "Yes",
                 "Yes",
-                ""));
+                "Check casting mechanics!"));
         questionList.add(1, new Question(1,
                 "Is there alignment restriction for classes in Player's Handbook?",
                 "Yes, Paladin must be Lawful Good, Druid must be Neutral and Assassin must be evil.",
                 "No",
                 "Yes, Paladin must be Good and Monk Lawful.",
                 "No",
-                ""));
+                "Do classes have an effect on the alignment?"));
         questionList.add(2, new Question(2,
                 "Can you knock a creature out with a melee spell attack?",
                 "Only with Spell Sniper feat.",
                 "No, only with a melee weapon.",
                 "Yes",
                 "Yes",
-                ""));
+                "Check melee spells' properties."));
         questionList.add(3, new Question(3,
                 "Can you use a shield with Mage Armor spell?",
                 "Only with a light shield or buckler shield.",
                 "Yes, Mage Armor spell works with a shield",
                 "Nope, they do not stack.",
                 "Yes, Mage Armor spell works with a shield.",
-                ""));
+                "Check Mage Armor's properties."));
         questionList.add(4, new Question(4,
                 "A monster is immune to damage from nonmagical bludgeoning weapons. Does he still take damage from falling?",
                 "Yes, but has resistance to damage.",
@@ -201,7 +207,7 @@ public class QuizActivity extends AppCompatActivity {
                 "Target has half-cover +2 bonus to AC.",
                 "You have disadvantage.",
                 "Target has half-cover +2 bonus to AC.",
-                ""));
+                "Check cover mechanics."));
         questionList.add(9, new Question(9,
                 "Can you make an attack action from Prone condition?",
                 "Yes, but you have disadvantage on attack rolls.",

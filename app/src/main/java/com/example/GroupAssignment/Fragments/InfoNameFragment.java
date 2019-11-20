@@ -20,8 +20,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.GroupAssignment.Adapters.InfoNameRecyclerAdapter;
 import com.example.GroupAssignment.R;
 import com.example.GroupAssignment.ResultsDatabase;
-import com.example.GroupAssignment.models.DndInfoOverview;
-import com.example.GroupAssignment.models.Results;
+import com.example.GroupAssignment.models.*;
 import com.google.gson.Gson;
 
 import java.util.Arrays;
@@ -98,7 +97,7 @@ public class InfoNameFragment extends Fragment {
 
                 Gson gson = new Gson();
 
-                DndInfoOverview dndInfoOverview= gson.fromJson(response, DndInfoOverview.class);
+                DndInfoOverview dndInfoOverview = gson.fromJson(response, DndInfoOverview.class);
                 Results[] results = dndInfoOverview.getSpells();
                 resultsList = Arrays.asList(results);
 

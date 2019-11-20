@@ -55,6 +55,9 @@ public class Results
 
     private String slug;
 
+    //this is the property for categories e.g. "spells/", "weapons/" and so on..
+    private String route;
+
 
     // The properties below are for Weapons, weapons have some similar properties as Spells, like name and document stuff.
     private String casting_time;
@@ -362,5 +365,11 @@ public class Results
         this.desc = desc;
     }
 
+    public String getRoute() {
+        return route;
+    }
 
+    public void setRoute(String route) {
+        this.route = route;
+    }
 }

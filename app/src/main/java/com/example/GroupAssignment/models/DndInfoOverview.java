@@ -1,7 +1,5 @@
 package com.example.GroupAssignment.models;
 
-import com.google.gson.annotations.SerializedName;
-
 
 public class DndInfoOverview
 {

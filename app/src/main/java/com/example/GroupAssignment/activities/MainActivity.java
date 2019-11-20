@@ -12,8 +12,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 import com.example.GroupAssignment.Fragments.InformationFragment;
 import com.example.GroupAssignment.Fragments.QuizFragment;
@@ -23,7 +21,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-edits-alison
 
 
     BottomNavigationView bottomNavigationView;
@@ -31,21 +28,7 @@ edits-alison
     Button startBtn;
     Button apiTestButton;
 
-=======
-/*
-  edits-alison
-*/
-//    Button startBtn;
 
-    BottomNavigationView bottomNavigationView;
-
-/*=======*/
-    Button startBtn;
-    Button apiTestButton;
-/*
-  master
-*/
-master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

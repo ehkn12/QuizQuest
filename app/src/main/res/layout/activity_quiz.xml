@@ -55,5 +55,11 @@
             android:layout_height="wrap_content"
             android:text="Next Question" />
 
+        <include
+            android:id="@+id/hint_include"
+            layout="@layout/include_quiz_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 </RelativeLayout>

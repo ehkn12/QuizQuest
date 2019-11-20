@@ -14,8 +14,6 @@ import com.example.GroupAssignment.R;
 import com.example.GroupAssignment.ResultsDatabase;
 import com.example.GroupAssignment.models.Results;
 
-import org.w3c.dom.Text;
-
 /**
  * A simple {@link Fragment} subclass.
  */
