@@ -87,6 +87,9 @@ public class QuizActivity extends AppCompatActivity {
                    if(currentQuestion.getHint() != ""){
                        hintText.setText(currentQuestion.getHint());
                        hintInclude.setVisibility(View.VISIBLE);
+                   } else {
+                       hintText.setText("Check Information!");
+                       hintInclude.setVisibility(View.VISIBLE);
                    }
                 }
                 answer.setChecked(false);
@@ -115,7 +118,7 @@ public class QuizActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), Integer.toString(score), Toast.LENGTH_LONG).show();
                     //TODO: Maybe have code here that does something after user finishes quiz (not decided yet)
                     // either changing to another fragment or whatever
-
+                    finish();
                     //TODO Right now after pressing the last button (Finish Quiz) it just returns to the original activity
                     // We're probably putting all these into fragments right, make sure it doesnt happen again during fragments
                 }
