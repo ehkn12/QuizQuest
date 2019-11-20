@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
     Button startBtn;
     Button apiTestButton;
 
+    private Fragment quizFragment;
+    private Fragment scoreboardFragment;
+    private Fragment informationFragment;
+
 
 
     @Override
@@ -36,26 +40,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.navigation_view);
+        quizFragment = new QuizFragment();
+        scoreboardFragment = new ScoreboardFragment();
+        informationFragment = new InformationFragment();
+
+        swapFragment(quizFragment);
+        
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                if (menuItem.getItemId() == R.id.navigation_quiz) {
-                    Fragment fragment = new QuizFragment();
-                    swapFragment(fragment);
-                    return true;
-                } else if (menuItem.getItemId() == R.id.navigation_scoreboard) {
-                    Fragment fragment = new ScoreboardFragment();
-                    swapFragment(fragment);
-                    return true;
-                } else if (menuItem.getItemId() == R.id.navigation_information) {
-                    Fragment fragment = new InformationFragment();
-                    swapFragment(fragment);
-                    return true;
+                switch (menuItem.getItemId()){
+                    case R.id.navigation_quiz:
+                        swapFragment(quizFragment);
+                        break;
+                    case R.id.navigation_scoreboard:
+                        swapFragment(scoreboardFragment);
+                        break;
+                    case R.id.navigation_information:
+                        swapFragment(informationFragment);
+                        break;
+
                 }
-                return false;
+                return true;
             }
         });
+
 
         apiTestButton = findViewById(R.id.apiTestButton);
         apiTestButton.setOnClickListener( new View.OnClickListener(){
@@ -75,19 +85,11 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.fragment_layout, fragment);
         fragmentTransaction.commit();
     }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        swapFragment(scoreboardFragment);
+    }
 }
 
-
-
-//        startBtn = findViewById(R.id.startButton);
-//        startBtn.setOnClickListener( new View.OnClickListener(){
-//
-//            @Override
-//            public void onClick(View view) {
-//                Context c = view.getContext();
-//
-//                Intent intent = new Intent(c, QuizActivity.class);
-//                c.startActivity(intent);
-//
-//            }
-//        });

@@ -2,6 +2,7 @@ package com.example.GroupAssignment.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -119,6 +120,7 @@ public class QuizActivity extends AppCompatActivity {
                     //TODO: Maybe have code here that does something after user finishes quiz (not decided yet)
                     // either changing to another fragment or whatever
                     finish();
+
                     //TODO Right now after pressing the last button (Finish Quiz) it just returns to the original activity
                     // We're probably putting all these into fragments right, make sure it doesnt happen again during fragments
                 }
