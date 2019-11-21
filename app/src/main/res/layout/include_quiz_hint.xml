@@ -4,7 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/scoreboard_background"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginTop="56dp"
+    android:layout_marginBottom="56dp"
+    android:layout_marginLeft="36dp"
+    android:layout_marginRight="56dp">
 
     <TextView
         android:id="@+id/hint_title"
@@ -12,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:text="Hint:"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:typeface="serif" />
 
