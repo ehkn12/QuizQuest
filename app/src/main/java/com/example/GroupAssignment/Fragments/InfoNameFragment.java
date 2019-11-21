@@ -68,6 +68,15 @@ public class InfoNameFragment extends Fragment {
             case "Weapons":
                 searchUrl = "https://api.open5e.com/weapons/?format=json";
                 break;
+
+            case "Classes":
+                searchUrl = "https://api.open5e.com/classes/?format=json";
+                break;
+
+            case "Backgrounds":
+                searchUrl = "https://api.open5e.com/backgrounds/?format=json";
+                break;
+
         }
 
         setInfoRecycler(view, searchUrl, infoType);

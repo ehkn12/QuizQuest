@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "2aa32aac8de8a0f47faae9c8db1ff4fc",
+    "identityHash": "3418cfd93c667a8bff71fbe8dc7d72e7",
     "entities": [
       {
         "tableName": "results",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`components` TEXT, `ritual` TEXT, `level` TEXT, `document__license_url` TEXT, `range` TEXT, `circles` TEXT, `concentration` TEXT, `duration` TEXT, `archetype` TEXT, `material` TEXT, `school` TEXT, `document__slug` TEXT, `name` TEXT NOT NULL, `higher_level` TEXT, `level_int` TEXT, `page` TEXT, `document__title` TEXT, `slug` TEXT, `route` TEXT, `casting_time` TEXT, `dnd_class` TEXT, `desc` TEXT, `damage_type` TEXT, `cost` TEXT, `damage_dice` TEXT, `weight` TEXT, `category` TEXT, PRIMARY KEY(`name`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`components` TEXT, `ritual` TEXT, `level` TEXT, `document__license_url` TEXT, `range` TEXT, `circles` TEXT, `concentration` TEXT, `duration` TEXT, `archetype` TEXT, `material` TEXT, `school` TEXT, `document__slug` TEXT, `name` TEXT NOT NULL, `higher_level` TEXT, `level_int` TEXT, `page` TEXT, `document__title` TEXT, `slug` TEXT, `route` TEXT, `casting_time` TEXT, `dnd_class` TEXT, `desc` TEXT, `damage_type` TEXT, `cost` TEXT, `damage_dice` TEXT, `weight` TEXT, `category` TEXT, `prof_skills` TEXT, `spellcasting_ability` TEXT, `hp_at_higher_levels` TEXT, `equipment` TEXT, `subtypes_name` TEXT, `hp_at_1st_level` TEXT, `prof_saving_throws` TEXT, `hit_dice` TEXT, `prof_weapons` TEXT, `prof_armor` TEXT, `prof_tools` TEXT, `table` TEXT, `languages` TEXT, `tool_proficiencies` TEXT, `suggested_characteristics` TEXT, `feature_desc` TEXT, `feature` TEXT, `skill_proficiencies` TEXT, `parent` TEXT, `speed_desc` TEXT, `traits` TEXT, `asi_desc` TEXT, `vision` TEXT, `size` TEXT, `alignment` TEXT, `age` TEXT, `requires_attunement` TEXT, `type` TEXT, `rarity` TEXT, PRIMARY KEY(`name`))",
         "fields": [
           {
             "fieldPath": "components",
@@ -169,6 +169,180 @@
             "columnName": "category",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "prof_skills",
+            "columnName": "prof_skills",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "spellcasting_ability",
+            "columnName": "spellcasting_ability",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hp_at_higher_levels",
+            "columnName": "hp_at_higher_levels",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "equipment",
+            "columnName": "equipment",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "subtypes_name",
+            "columnName": "subtypes_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hp_at_1st_level",
+            "columnName": "hp_at_1st_level",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "prof_saving_throws",
+            "columnName": "prof_saving_throws",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hit_dice",
+            "columnName": "hit_dice",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "prof_weapons",
+            "columnName": "prof_weapons",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "prof_armor",
+            "columnName": "prof_armor",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "prof_tools",
+            "columnName": "prof_tools",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "table",
+            "columnName": "table",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "languages",
+            "columnName": "languages",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tool_proficiencies",
+            "columnName": "tool_proficiencies",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "suggested_characteristics",
+            "columnName": "suggested_characteristics",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "feature_desc",
+            "columnName": "feature_desc",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "feature",
+            "columnName": "feature",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "skill_proficiencies",
+            "columnName": "skill_proficiencies",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parent",
+            "columnName": "parent",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "speed_desc",
+            "columnName": "speed_desc",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "traits",
+            "columnName": "traits",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "asi_desc",
+            "columnName": "asi_desc",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "vision",
+            "columnName": "vision",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "size",
+            "columnName": "size",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "alignment",
+            "columnName": "alignment",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "age",
+            "columnName": "age",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "requires_attunement",
+            "columnName": "requires_attunement",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "rarity",
+            "columnName": "rarity",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -184,7 +358,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2aa32aac8de8a0f47faae9c8db1ff4fc')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3418cfd93c667a8bff71fbe8dc7d72e7')"
     ]
   }
 }
