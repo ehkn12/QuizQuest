@@ -15,7 +15,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "results")
 public class Results
 {
-    //The properties below are for Spells
+    //The properties below are unique to Spells
 
     private String components;
 
@@ -59,7 +59,7 @@ public class Results
     private String route;
 
 
-    // The properties below are for Weapons, weapons have some similar properties as Spells, like name and document stuff.
+    // The properties below unique to Weapons
     private String casting_time;
 
     private String dnd_class;
@@ -78,6 +78,429 @@ public class Results
     @Ignore
     private String[] properties;
 
+
+    // The properties below are unique for Classes
+    private String prof_skills;
+
+    private String spellcasting_ability;
+
+    private String hp_at_higher_levels;
+
+    private String equipment;
+
+    private String subtypes_name;
+
+    private String hp_at_1st_level;
+
+    private String prof_saving_throws;
+    @Ignore
+    private Archetypes[] archetypes;
+
+    private String hit_dice;
+
+    private String prof_weapons;
+
+    private String prof_armor;
+
+    private String prof_tools;
+
+    private String table;
+
+
+    // The below are properties unique to Backgrounds
+    private String languages;
+
+    private String tool_proficiencies;
+
+    private String suggested_characteristics;
+
+    private String feature_desc;
+
+    private String feature;
+
+    private String skill_proficiencies;
+
+
+    // The below are properties unique to Sections
+    private String parent;
+
+    //The below are properties unique to Races
+    private String speed_desc;
+
+    private String traits;
+
+    private String asi_desc;
+    @Ignore
+    private Subraces[] subraces;
+    @Ignore
+    private Speed speed;
+
+    private String vision;
+
+    private String size;
+    @Ignore
+    private Asi[] asi;
+
+    private String alignment;
+
+    private String age;
+
+
+    // The below are properties unique to Magic Items
+    private String requires_attunement;
+
+    private String type;
+
+    private String rarity;
+
+
+
+
+    public String getRequires_attunement ()
+    {
+        return requires_attunement;
+    }
+
+    public void setRequires_attunement (String requires_attunement)
+    {
+        this.requires_attunement = requires_attunement;
+    }
+
+
+    public String getType ()
+    {
+        return type;
+    }
+
+    public void setType (String type)
+    {
+        this.type = type;
+    }
+
+
+    public String getRarity ()
+    {
+        return rarity;
+    }
+
+    public void setRarity (String rarity)
+    {
+        this.rarity = rarity;
+    }
+
+
+    public String getSpeed_desc ()
+    {
+        return speed_desc;
+    }
+
+    public void setSpeed_desc (String speed_desc)
+    {
+        this.speed_desc = speed_desc;
+    }
+
+    public String getTraits ()
+    {
+        return traits;
+    }
+
+    public void setTraits (String traits)
+    {
+        this.traits = traits;
+    }
+
+    public String getLanguages ()
+    {
+        return languages;
+    }
+
+    public void setLanguages (String languages)
+    {
+        this.languages = languages;
+    }
+
+    public String getAsi_desc ()
+    {
+        return asi_desc;
+    }
+
+    public void setAsi_desc (String asi_desc)
+    {
+        this.asi_desc = asi_desc;
+    }
+
+    public Subraces[] getSubraces ()
+    {
+        return subraces;
+    }
+
+    public void setSubraces (Subraces[] subraces)
+    {
+        this.subraces = subraces;
+    }
+
+    public Speed getSpeed ()
+    {
+        return speed;
+    }
+
+    public void setSpeed (Speed speed)
+    {
+        this.speed = speed;
+    }
+
+    public String getVision ()
+    {
+        return vision;
+    }
+
+    public void setVision (String vision)
+    {
+        this.vision = vision;
+    }
+
+    public String getSize ()
+    {
+        return size;
+    }
+
+    public void setSize (String size)
+    {
+        this.size = size;
+    }
+
+    public Asi[] getAsi ()
+    {
+        return asi;
+    }
+
+    public void setAsi (Asi[] asi)
+    {
+        this.asi = asi;
+    }
+
+
+    public String getAlignment ()
+    {
+        return alignment;
+    }
+
+    public void setAlignment (String alignment)
+    {
+        this.alignment = alignment;
+    }
+
+
+    public String getAge ()
+    {
+        return age;
+    }
+
+    public void setAge (String age)
+    {
+        this.age = age;
+    }
+
+    public String getParent ()
+    {
+        return parent;
+    }
+
+    public void setParent (String parent)
+    {
+        this.parent = parent;
+    }
+
+
+    public String getTool_proficiencies ()
+{
+    if (tool_proficiencies != null && !tool_proficiencies.isEmpty()) {
+        return tool_proficiencies;
+    }
+    return "Doesn't use tools";
+}
+
+    public void setTool_proficiencies (String tool_proficiencies)
+    {
+        this.tool_proficiencies = tool_proficiencies;
+    }
+
+
+    public String getSuggested_characteristics ()
+    {
+        return suggested_characteristics;
+    }
+
+    public void setSuggested_characteristics (String suggested_characteristics)
+    {
+        this.suggested_characteristics = suggested_characteristics;
+    }
+
+    public String getFeature_desc ()
+    {
+        return feature_desc;
+    }
+
+    public void setFeature_desc (String feature_desc)
+    {
+        this.feature_desc = feature_desc;
+    }
+
+    public String getFeature ()
+    {
+        return feature;
+    }
+
+    public void setFeature (String feature)
+    {
+        this.feature = feature;
+    }
+
+
+    public String getSkill_proficiencies ()
+    {
+        return skill_proficiencies;
+    }
+
+    public void setSkill_proficiencies (String skill_proficiencies)
+    {
+        this.skill_proficiencies = skill_proficiencies;
+    }
+
+
+    public String getProf_skills ()
+    {
+        return prof_skills;
+    }
+
+    public void setProf_skills (String prof_skills)
+    {
+        this.prof_skills = prof_skills;
+    }
+
+    public String getSpellcasting_ability ()
+    {
+        return spellcasting_ability;
+    }
+
+    public void setSpellcasting_ability (String spellcasting_ability)
+    {
+        this.spellcasting_ability = spellcasting_ability;
+    }
+
+    public String getHp_at_higher_levels ()
+    {
+        return hp_at_higher_levels;
+    }
+
+    public void setHp_at_higher_levels (String hp_at_higher_levels)
+    {
+        this.hp_at_higher_levels = hp_at_higher_levels;
+    }
+
+
+    public String getEquipment ()
+    {
+        return equipment;
+    }
+
+    public void setEquipment (String equipment)
+    {
+        this.equipment = equipment;
+    }
+
+    public String getSubtypes_name ()
+    {
+        return subtypes_name;
+    }
+
+    public void setSubtypes_name (String subtypes_name)
+    {
+        this.subtypes_name = subtypes_name;
+    }
+
+    public String getHp_at_1st_level ()
+    {
+        return hp_at_1st_level;
+    }
+
+    public void setHp_at_1st_level (String hp_at_1st_level)
+    {
+        this.hp_at_1st_level = hp_at_1st_level;
+    }
+
+    public String getProf_saving_throws ()
+    {
+        return prof_saving_throws;
+    }
+
+    public void setProf_saving_throws (String prof_saving_throws)
+    {
+        this.prof_saving_throws = prof_saving_throws;
+    }
+
+    public Archetypes[] getArchetypes ()
+    {
+        return archetypes;
+    }
+
+    public void setArchetypes (Archetypes[] archetypes)
+    {
+        this.archetypes = archetypes;
+    }
+
+    public String getHit_dice ()
+    {
+        return hit_dice;
+    }
+
+    public void setHit_dice (String hit_dice)
+    {
+        this.hit_dice = hit_dice;
+    }
+
+    public String getProf_weapons ()
+    {
+        return prof_weapons;
+    }
+
+    public void setProf_weapons (String prof_weapons)
+    {
+        this.prof_weapons = prof_weapons;
+    }
+
+
+    public String getProf_armor ()
+    {
+        return prof_armor;
+    }
+
+    public void setProf_armor (String prof_armor)
+    {
+        this.prof_armor = prof_armor;
+    }
+
+    public String getProf_tools ()
+    {
+        return prof_tools;
+    }
+
+    public void setProf_tools (String prof_tools)
+    {
+        this.prof_tools = prof_tools;
+    }
+
+
+    public String getTable ()
+    {
+        return table;
+    }
+
+
+    public void setTable (String table)
+    {
+        this.table = table;
+    }
 
 
     public String getDamage_type ()
@@ -246,7 +669,10 @@ public class Results
 
     public String getMaterial ()
     {
-        return material;
+        if (!material.isEmpty()) {
+            return material;
+        }
+        return "No Materials Needed";
     }
 
     public void setMaterial (String material)

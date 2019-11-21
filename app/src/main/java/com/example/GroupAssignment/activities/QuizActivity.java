@@ -23,8 +23,6 @@ import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
 
-    private QuizActivity quizActivity;
-
 
     private Button scoreText;
     private Button questionText;
@@ -37,9 +35,9 @@ public class QuizActivity extends AppCompatActivity {
 
     private QuestionDatabase db;
 
-    int score = 0;
-    int questionNum = 0;
-    Question currentQuestion;
+    private int score = 0;
+    private int questionNum = 0;
+    private Question currentQuestion;
 
     public static ArrayList<Integer> scoreHistoryList = new ArrayList<>();
 
@@ -59,8 +57,6 @@ public class QuizActivity extends AppCompatActivity {
         optionB = quizLinearLayout.findViewById(R.id.quizOptionB);
         optionC = quizLinearLayout.findViewById(R.id.quizOptionC);
         nextBtn = quizLinearLayout.findViewById(R.id.quizNextButton);
-
-        Intent intent = getIntent();
 
 
         //TODO: After everything else is done, we can convert the QuestionDB stuff into the AsyncTaskDelegates etc

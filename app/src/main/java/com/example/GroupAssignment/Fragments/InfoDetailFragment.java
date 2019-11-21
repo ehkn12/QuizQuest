@@ -24,8 +24,27 @@ public class InfoDetailFragment extends Fragment {
 
     private TextView spellName;
     private TextView spellDesc;
+    private TextView spellHighLvl;
+    private TextView spellRange;
+    private TextView spellComponents;
+    private TextView spellMaterials;
+    private TextView spellRitual;
+    private TextView spellDuration;
+    private TextView spellConcentration;
+    private TextView spellCastingTime;
+    private TextView spellLevel;
+    private TextView spellIntLvl;
+    private TextView spellSchool;
+    private TextView spellCircle;
+
+
+
     private TextView weaponName;
     private TextView weaponCategory;
+
+    private TextView className;
+
+    private TextView backgroundName;
 
     private ResultsDatabase rdb;
     private Results dbReturn;
@@ -53,9 +72,35 @@ public class InfoDetailFragment extends Fragment {
 
                 spellName = view.findViewById(R.id.spellName);
                 spellDesc = view.findViewById(R.id.spellDesc);
+                spellHighLvl = view.findViewById(R.id.spellHighLvl);
+                spellRange = view.findViewById(R.id.spellRange);
+                spellComponents = view.findViewById(R.id.spellComponents);
+                spellMaterials = view.findViewById(R.id.spellMaterials);
+                spellRitual = view.findViewById(R.id.spellRitualCheck);
+                spellDuration = view.findViewById(R.id.spellDuration);
+                spellConcentration = view.findViewById(R.id.spellConcentrationCheck);
+                spellCastingTime = view.findViewById(R.id.spellCastingTIme);
+                spellLevel = view.findViewById(R.id.spellLevel);
+                spellIntLvl = view.findViewById(R.id.spellIntLevel);
+                spellSchool = view.findViewById(R.id.spellSchool);
+                spellCircle = view.findViewById(R.id.spellCircles);
 
                 spellName.setText(dbReturn.getName());
                 spellDesc.setText(dbReturn.getDesc());
+                spellHighLvl.setText(dbReturn.getHigher_level());
+                spellRange.setText(dbReturn.getRange());
+                spellComponents.setText(dbReturn.getComponents());
+                spellMaterials.setText(dbReturn.getMaterial());
+                spellRitual.setText(dbReturn.getRitual());
+                spellDuration.setText(dbReturn.getDuration());
+                spellConcentration.setText(dbReturn.getConcentration());
+                spellCastingTime.setText(dbReturn.getCasting_time());
+                spellLevel.setText(dbReturn.getLevel());
+                spellIntLvl.setText(dbReturn.getLevel_int());
+                spellSchool.setText(dbReturn.getSchool());
+                spellCircle.setText(dbReturn.getCircles());
+
+
                 break;
 
             case "Weapons":
@@ -71,6 +116,25 @@ public class InfoDetailFragment extends Fragment {
                 weaponCategory.setText(dbReturn.getCategory());
                 break;
 
+            case "Classes":
+                view = inflater.inflate(R.layout.classlayout, container, false);
+
+                rdb = ResultsDatabase.getInstance(view.getContext());
+                dbReturn = rdb.dndInfoDao().getResult(infoName);
+
+                className = view.findViewById(R.id.className);
+                className.setText(dbReturn.getName());
+                break;
+
+            case "Backgrounds":
+                view = inflater.inflate(R.layout.backgroundslayout, container, false);
+
+                rdb = ResultsDatabase.getInstance(view.getContext());
+                dbReturn = rdb.dndInfoDao().getResult(infoName);
+
+                backgroundName = view.findViewById(R.id.backgroundName);
+                backgroundName.setText(dbReturn.getName());
+                break;
         }
         return view;
     }
