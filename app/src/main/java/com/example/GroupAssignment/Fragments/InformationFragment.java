@@ -77,14 +77,15 @@ public class InformationFragment extends Fragment {
         List<String> infos = new ArrayList<String>();
 
         infos.add("Spells");
+        infos.add("Weapons");
+        infos.add("Classes");
         infos.add("Backgrounds");
         infos.add("Planes");
         infos.add("Sections");
         infos.add("Conditions");
         infos.add("Races");
-        infos.add("Classes");
         infos.add("Magic Items");
-        infos.add("Weapons");
+
 
         return infos;
     }

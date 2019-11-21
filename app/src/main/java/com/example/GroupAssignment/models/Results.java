@@ -670,10 +670,8 @@ public class Results
 
     public String getMaterial ()
     {
-        if (!material.isEmpty()) {
-            return material;
-        }
-        return "No Materials Needed";
+        return material;
+
     }
 
     public void setMaterial (String material)
