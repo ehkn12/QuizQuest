@@ -19,14 +19,14 @@ import com.example.GroupAssignment.Fragments.ScoreboardFragment;
 import com.example.GroupAssignment.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import static com.example.GroupAssignment.activities.QuizActivity.scoreHistoryList;
+
 public class MainActivity extends AppCompatActivity {
 
 
 
-    BottomNavigationView bottomNavigationView;
-
-    Button startBtn;
-    Button apiTestButton;
+    private BottomNavigationView bottomNavigationView;
+    
 
     private Fragment quizFragment;
     private Fragment scoreboardFragment;
@@ -67,17 +67,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        apiTestButton = findViewById(R.id.apiTestButton);
-        apiTestButton.setOnClickListener( new View.OnClickListener(){
 
-            @Override
-            public void onClick(View view) {
-                Context c = view.getContext();
-                Intent intent = new Intent(c, TestActivity.class);
-                c.startActivity(intent);
-
-            }
-        });
     }
     private void swapFragment(Fragment fragment) {
         FragmentManager fragmentManager =  getSupportFragmentManager();
@@ -89,7 +79,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
-        swapFragment(scoreboardFragment);
+        if (scoreHistoryList.size() != 0){
+            swapFragment(scoreboardFragment);
+        } else {
+            swapFragment(quizFragment);
+        }
+
     }
 }
 

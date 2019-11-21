@@ -1,6 +1,7 @@
 package com.example.GroupAssignment.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
 import android.content.Intent;
@@ -25,8 +26,8 @@ public class QuizActivity extends AppCompatActivity {
     private QuizActivity quizActivity;
 
 
-    private TextView scoreText;
-    private TextView questionText;
+    private Button scoreText;
+    private Button questionText;
     private RadioButton optionA;
     private RadioButton optionB;
     private RadioButton optionC;
@@ -46,14 +47,14 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-        LinearLayout quizLinearLayout = findViewById(R.id.quizLinearLayout);
+        ConstraintLayout quizLinearLayout = findViewById(R.id.quizLinearLayout);
         hintInclude = findViewById(R.id.hint_include);
         hintInclude.setVisibility(View.INVISIBLE);
         hintText = hintInclude.findViewById(R.id.hint_text);
         db = QuestionDatabase.getInstance(quizLinearLayout.getContext());
 
-        questionText = quizLinearLayout.findViewById(R.id.quizQuestion);
-        scoreText = quizLinearLayout.findViewById(R.id.scoreText);
+        questionText = quizLinearLayout.findViewById(R.id.question_text);
+        scoreText = quizLinearLayout.findViewById(R.id.score_text);
         optionA = quizLinearLayout.findViewById(R.id.quizOptionA);
         optionB = quizLinearLayout.findViewById(R.id.quizOptionB);
         optionC = quizLinearLayout.findViewById(R.id.quizOptionC);
@@ -85,13 +86,9 @@ public class QuizActivity extends AppCompatActivity {
                     hintInclude.setVisibility(View.INVISIBLE);
                     score++;
                 } else {
-                   if(currentQuestion.getHint() != ""){
-                       hintText.setText(currentQuestion.getHint());
-                       hintInclude.setVisibility(View.VISIBLE);
-                   } else {
-                       hintText.setText("Check Information!");
-                       hintInclude.setVisibility(View.VISIBLE);
-                   }
+                    hintText.setText(currentQuestion.getHint());
+                    hintInclude.setVisibility(View.VISIBLE);
+
                 }
                 answer.setChecked(false);
                 Toast.makeText(getApplicationContext(), Integer.toString(questionNum), Toast.LENGTH_LONG).show();
@@ -117,12 +114,9 @@ public class QuizActivity extends AppCompatActivity {
                     scoreHistoryList.add(score);
                     //Toast to check for score at the end
                     Toast.makeText(getApplicationContext(), Integer.toString(score), Toast.LENGTH_LONG).show();
-                    //TODO: Maybe have code here that does something after user finishes quiz (not decided yet)
-                    // either changing to another fragment or whatever
                     finish();
 
-                    //TODO Right now after pressing the last button (Finish Quiz) it just returns to the original activity
-                    // We're probably putting all these into fragments right, make sure it doesnt happen again during fragments
+
                 }
 
 
@@ -139,7 +133,7 @@ public class QuizActivity extends AppCompatActivity {
     public void setQuestion(Question question, int score){
 
         scoreText.setText("Score: " + score);
-        questionText.setText(question.getQuestion());
+        questionText.setText(" " + question.getQuestion()+ " ");
         optionA.setText(question.getOptionA());
         optionB.setText(question.getOptionB());
         optionC.setText(question.getOptionC());
@@ -184,28 +178,28 @@ public class QuizActivity extends AppCompatActivity {
                 "No, fall is a bludgeoning damage.",
                 "Yes, fall is not a weapon.",
                 "Yes, fall is not a weapon.",
-                ""));
+                "Does falling count as bludgeoning?"));
         questionList.add(5, new Question(5,
                 "If a 5th level wizard casts a Fireball during surprise, do the enemies get disadvantage on their saving throw?",
                 "No",
                 "Only if wizard has with War Caster feat.",
                 "Yes",
                 "No",
-                ""));
+                "Check the effect of levels on classes."));
         questionList.add(6, new Question(6,
                 "Is a 1 on an ability check an automatic failure?",
                 "No",
                 "Yes.",
                 "Yes and roll a d10 on Fumble table.",
                 "No",
-                ""));
+                "Revise die mechanics"));
         questionList.add(7, new Question(7,
                 "Can rogue get sneak attack damage against undead?",
                 "Yes, Sneak Attack works against Undead.",
                 "No, undeads have resistance to sneak attack.",
                 "Only if you use a bludgeoning weapon.",
                 "Yes, Sneak Attack works against Undead.",
-                ""));
+                "Does sneak attack land on the undead."));
         questionList.add(8, new Question(8,
                 "If you have a creature between you and the target...",
                 "Target has cover +4 bonus to AC.",
@@ -219,7 +213,7 @@ public class QuizActivity extends AppCompatActivity {
                 "No, you must stand up (half movement) and attack.",
                 "Only with a weapon with reach property.",
                 "Yes, but you have disadvantage on attack rolls.",
-                ""));
+                "Check Prone condition."));
 
         return questionList;
     }
