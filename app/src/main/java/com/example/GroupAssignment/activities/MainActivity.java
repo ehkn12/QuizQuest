@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.GroupAssignment.Fragments.InformationFragment;
 import com.example.GroupAssignment.Fragments.QuizFragment;
@@ -53,12 +54,15 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()){
                     case R.id.navigation_quiz:
                         swapFragment(quizFragment);
+                        Toast.makeText(MainActivity.this, "blah", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.navigation_scoreboard:
                         swapFragment(scoreboardFragment);
+                        Toast.makeText(MainActivity.this, "bleh", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.navigation_information:
                         swapFragment(informationFragment);
+                        Toast.makeText(MainActivity.this, "bloh", Toast.LENGTH_SHORT).show();
                         break;
 
                 }
@@ -76,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-    @Override
+/*    @Override
     public void onResume(){
         super.onResume();
         if (scoreHistoryList.size() != 0){
@@ -85,6 +89,6 @@ public class MainActivity extends AppCompatActivity {
             swapFragment(quizFragment);
         }
 
-    }
+    }*/
 }
 

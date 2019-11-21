@@ -47,6 +47,20 @@ public class InfoDetailFragment extends Fragment {
     private TextView weaponWeight;
 
     private TextView className;
+    private TextView classDesc;
+    private TextView classHitDie;
+    private TextView class1stHp;
+    private TextView classHpGainPerLvl;
+    private TextView classProfArmour;
+    private TextView classProfWeapon;
+    private TextView classProfTools;
+    private TextView classProfSavingThrow;
+    private TextView classProfSkills;
+    private TextView classEquipment;
+    private TextView classTable;
+    private TextView classSpellCastingAbility;
+    private TextView classSubtype;
+
 
     private TextView backgroundName;
 
@@ -107,6 +121,7 @@ public class InfoDetailFragment extends Fragment {
                 break;
 
             case "Weapons":
+
                 view = inflater.inflate(R.layout.weaponlayout, container, false);
 
                 rdb = ResultsDatabase.getInstance(view.getContext());
@@ -114,13 +129,17 @@ public class InfoDetailFragment extends Fragment {
 
                 weaponName = view.findViewById(R.id.weaponName);
                 weaponCategory = view.findViewById(R.id.weaponCategory);
-                weaponCost = view.findViewById(R.id.weaponCategory);
-                weaponDmgDice = view.findViewById(R.id.weaponCategory);
-                weaponDmgType = view.findViewById(R.id.weaponCategory);
-                weaponWeight = view.findViewById(R.id.weaponCategory);
+                weaponCost = view.findViewById(R.id.weaponCost);
+                weaponDmgDice = view.findViewById(R.id.weaponDmgDice);
+                weaponDmgType = view.findViewById(R.id.weaponDmgType);
+                weaponWeight = view.findViewById(R.id.weaponWeight);
 
                 weaponName.setText(dbReturn.getName());
                 weaponCategory.setText(dbReturn.getCategory());
+                weaponCost.setText(dbReturn.getCost());
+                weaponDmgType.setText(dbReturn.getDamage_type());
+                weaponDmgDice.setText(dbReturn.getDamage_dice());
+                weaponWeight.setText(dbReturn.getWeight());
 
 
                 break;
@@ -132,7 +151,36 @@ public class InfoDetailFragment extends Fragment {
                 dbReturn = rdb.dndInfoDao().getResult(infoName);
 
                 className = view.findViewById(R.id.className);
+                classDesc = view.findViewById(R.id.classDesc);
+                classHitDie = view.findViewById(R.id.classHitDie);
+                class1stHp = view.findViewById(R.id.class1stLvlHp);
+                classHpGainPerLvl = view.findViewById(R.id.classHpGainPerLvl);
+                classProfArmour = view.findViewById(R.id.classProfArmor);
+                classProfWeapon = view.findViewById(R.id.classProfWeapons);
+                classProfSavingThrow = view.findViewById(R.id.classProfSaveThrows);
+                classProfSkills = view.findViewById(R.id.classProfSkills);
+                classProfTools = view.findViewById(R.id.classProfTools);
+                classEquipment = view.findViewById(R.id.classEquipment);
+                classTable = view.findViewById(R.id.classTable);
+                classSpellCastingAbility = view.findViewById(R.id.classSpellcastAb);
+                classSubtype = view.findViewById(R.id.classSubtype);
+
+
                 className.setText(dbReturn.getName());
+                classDesc.setText(dbReturn.getDesc());
+                classHitDie.setText(dbReturn.getHit_dice());
+                class1stHp.setText(dbReturn.getHp_at_1st_level());
+                classHpGainPerLvl.setText(dbReturn.getHp_at_higher_levels());
+                classProfArmour.setText(dbReturn.getProf_armor());
+                classProfWeapon.setText(dbReturn.getProf_weapons());
+                classProfSavingThrow.setText(dbReturn.getProf_saving_throws());
+                classProfSkills.setText(dbReturn.getProf_skills());
+                classProfTools.setText(dbReturn.getProf_tools());
+                classEquipment.setText(dbReturn.getEquipment());
+                classTable.setText(dbReturn.getTable());
+                classSpellCastingAbility.setText(dbReturn.getSpellcasting_ability());
+                classSubtype.setText(dbReturn.getSubtypes_name());
+
                 break;
 
             case "Backgrounds":
