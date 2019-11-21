@@ -4,62 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_quiz"
     tools:context="com.example.GroupAssignment.activities.QuizActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/quizLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/scoreText"
+        <Button
+            android:id="@+id/question_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:background="@drawable/scoreboard_background"
+            android:text="Button"
+            android:textColor="#585656"
+            android:typeface="serif"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/score_text" />
 
-        <TextView
-            android:id="@+id/quizQuestion"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/score_text"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="24sp" />
+            android:background="@drawable/score_number"
+            android:text="Button"
+            android:textColor="@android:color/background_light"
+            android:typeface="serif"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <RadioGroup
             android:id="@+id/quizOptions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/question_text">
 
             <RadioButton
                 android:id="@+id/quizOptionA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="RadioButton"
+                android:textColor="@android:color/background_light"
+                android:typeface="serif" />
 
             <RadioButton
                 android:id="@+id/quizOptionB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="RadioButton"
+                android:textColor="@android:color/background_light"
+                android:typeface="serif" />
 
             <RadioButton
                 android:id="@+id/quizOptionC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="RadioButton"
+                android:textColor="@android:color/background_light"
+                android:typeface="serif" />
         </RadioGroup>
 
         <Button
             android:id="@+id/quizNextButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next Question" />
+            android:background="@drawable/score_number"
+            android:text="   Next Question   "
+            android:textColor="@android:color/background_light"
+            android:typeface="serif"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/quizOptions" />
 
         <include
             android:id="@+id/hint_include"
             layout="@layout/include_quiz_hint"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/quizNextButton" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

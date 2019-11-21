@@ -3,21 +3,25 @@
     android:id="@+id/hint_linear_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#007A7A7A"
+    android:background="@drawable/scoreboard_background"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/hint_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
         android:text="Hint:"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:typeface="serif" />
 
     <TextView
         android:id="@+id/hint_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
         android:text="TextView"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:typeface="serif" />
 </LinearLayout>
