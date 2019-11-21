@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,12 +17,13 @@ import android.widget.Button;
 import com.example.GroupAssignment.Fragments.InformationFragment;
 import com.example.GroupAssignment.Fragments.QuizFragment;
 import com.example.GroupAssignment.Fragments.ScoreboardFragment;
+import com.example.GroupAssignment.Fragments.SearchRecyclerFragment;
 import com.example.GroupAssignment.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import static com.example.GroupAssignment.activities.QuizActivity.scoreHistoryList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SearchRecyclerFragment.OnFragmentInteractionListener {
 
 
 
@@ -84,6 +86,11 @@ public class MainActivity extends AppCompatActivity {
         } else {
             swapFragment(quizFragment);
         }
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri){
 
     }
 }

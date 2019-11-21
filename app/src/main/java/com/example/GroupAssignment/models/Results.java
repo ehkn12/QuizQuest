@@ -57,6 +57,7 @@ public class Results
 
     //this is the property for categories e.g. "spells/", "weapons/" and so on..
     private String route;
+    private String text;
 
 
     // The properties below unique to Weapons
@@ -797,5 +798,13 @@ public class Results
 
     public void setRoute(String route) {
         this.route = route;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }

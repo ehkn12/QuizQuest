@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "3418cfd93c667a8bff71fbe8dc7d72e7",
+    "identityHash": "fd44765a5650833d8a4e78892381539d",
     "entities": [
       {
         "tableName": "results",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`components` TEXT, `ritual` TEXT, `level` TEXT, `document__license_url` TEXT, `range` TEXT, `circles` TEXT, `concentration` TEXT, `duration` TEXT, `archetype` TEXT, `material` TEXT, `school` TEXT, `document__slug` TEXT, `name` TEXT NOT NULL, `higher_level` TEXT, `level_int` TEXT, `page` TEXT, `document__title` TEXT, `slug` TEXT, `route` TEXT, `casting_time` TEXT, `dnd_class` TEXT, `desc` TEXT, `damage_type` TEXT, `cost` TEXT, `damage_dice` TEXT, `weight` TEXT, `category` TEXT, `prof_skills` TEXT, `spellcasting_ability` TEXT, `hp_at_higher_levels` TEXT, `equipment` TEXT, `subtypes_name` TEXT, `hp_at_1st_level` TEXT, `prof_saving_throws` TEXT, `hit_dice` TEXT, `prof_weapons` TEXT, `prof_armor` TEXT, `prof_tools` TEXT, `table` TEXT, `languages` TEXT, `tool_proficiencies` TEXT, `suggested_characteristics` TEXT, `feature_desc` TEXT, `feature` TEXT, `skill_proficiencies` TEXT, `parent` TEXT, `speed_desc` TEXT, `traits` TEXT, `asi_desc` TEXT, `vision` TEXT, `size` TEXT, `alignment` TEXT, `age` TEXT, `requires_attunement` TEXT, `type` TEXT, `rarity` TEXT, PRIMARY KEY(`name`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`components` TEXT, `ritual` TEXT, `level` TEXT, `document__license_url` TEXT, `range` TEXT, `circles` TEXT, `concentration` TEXT, `duration` TEXT, `archetype` TEXT, `material` TEXT, `school` TEXT, `document__slug` TEXT, `name` TEXT NOT NULL, `higher_level` TEXT, `level_int` TEXT, `page` TEXT, `document__title` TEXT, `slug` TEXT, `route` TEXT, `text` TEXT, `casting_time` TEXT, `dnd_class` TEXT, `desc` TEXT, `damage_type` TEXT, `cost` TEXT, `damage_dice` TEXT, `weight` TEXT, `category` TEXT, `prof_skills` TEXT, `spellcasting_ability` TEXT, `hp_at_higher_levels` TEXT, `equipment` TEXT, `subtypes_name` TEXT, `hp_at_1st_level` TEXT, `prof_saving_throws` TEXT, `hit_dice` TEXT, `prof_weapons` TEXT, `prof_armor` TEXT, `prof_tools` TEXT, `table` TEXT, `languages` TEXT, `tool_proficiencies` TEXT, `suggested_characteristics` TEXT, `feature_desc` TEXT, `feature` TEXT, `skill_proficiencies` TEXT, `parent` TEXT, `speed_desc` TEXT, `traits` TEXT, `asi_desc` TEXT, `vision` TEXT, `size` TEXT, `alignment` TEXT, `age` TEXT, `requires_attunement` TEXT, `type` TEXT, `rarity` TEXT, PRIMARY KEY(`name`))",
         "fields": [
           {
             "fieldPath": "components",
@@ -119,6 +119,12 @@
           {
             "fieldPath": "route",
             "columnName": "route",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -358,7 +364,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3418cfd93c667a8bff71fbe8dc7d72e7')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'fd44765a5650833d8a4e78892381539d')"
     ]
   }
 }

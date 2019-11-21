@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +34,8 @@ public class InformationFragment extends Fragment {
     private RecyclerView.LayoutManager informationLayoutManager;
     private RecyclerView.Adapter informationAdapter;
 
+    private Button searchFragment;
+
 
     public InformationFragment() {
 
@@ -52,6 +55,19 @@ public class InformationFragment extends Fragment {
 
         informationAdapter = new InformationRecyclerAdapter(infoList);
         informationRecycler.setAdapter(informationAdapter);
+
+        searchFragment = view.findViewById(R.id.button_search);
+        searchFragment.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                SearchRecyclerFragment fragment = new SearchRecyclerFragment();
+
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, fragment)
+                        .addToBackStack(null).commit();
+
+            }
+        });
 
         return view;
     }
