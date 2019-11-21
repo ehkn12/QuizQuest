@@ -1,5 +1,8 @@
 package com.example.GroupAssignment.Adapters;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +22,7 @@ import java.util.List;
 public class InfoNameRecyclerAdapter extends RecyclerView.Adapter<InfoNameRecyclerAdapter.ResultViewHolder> {
     private List<Results> resultsList;
     private String infoType;
+    private static Context mContext;
 
     public static class ResultViewHolder extends RecyclerView.ViewHolder {
         public TextView infoName;
@@ -32,9 +36,10 @@ public class InfoNameRecyclerAdapter extends RecyclerView.Adapter<InfoNameRecycl
         }
     }
 
-    public InfoNameRecyclerAdapter(List<Results> results, String string) {
+    public InfoNameRecyclerAdapter(List<Results> results, String string, Context context) {
         resultsList = results;
         infoType = string;
+        mContext = context;
 
     }
     @NonNull
@@ -48,21 +53,30 @@ public class InfoNameRecyclerAdapter extends RecyclerView.Adapter<InfoNameRecycl
     @Override
     public void onBindViewHolder(@NonNull ResultViewHolder holder, int position) {
         final String name = resultsList.get(position).getName();
+        final int clickPosition = position;
         holder.infoName.setText(name);
 
         holder.infoView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InfoDetailFragment fragment = new InfoDetailFragment();
+                if(infoType == "Spells" || infoType == "Classes" || infoType == "Weapons" ){
+                    InfoDetailFragment fragment = new InfoDetailFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("InfoName", name);
+                    bundle.putString("InfoType", infoType);
+                    fragment.setArguments(bundle);
 
-                Bundle bundle = new Bundle();
-                bundle.putString("InfoName", name);
-                bundle.putString("InfoType", infoType);
-                fragment.setArguments(bundle);
+                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, fragment)
+                            .addToBackStack(null).commit();
+                } else {
+                    String url = "http://www.google.com/#q=dnd+" + resultsList.get(clickPosition).getName();
 
-                AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, fragment)
-                        .addToBackStack(null).commit();
+                    Uri uri = Uri.parse(url);
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
+                    mContext.startActivity(browserIntent);
+                }
+
             }
         });
     }

@@ -60,7 +60,7 @@ public class InfoNameFragment extends Fragment {
         infoType = bundle.getString("infoType");
 
         switch (infoType)
-        {
+        {   //main classes
             case "Spells":
                 searchUrl = "https://api.open5e.com/spells/?format=json&limit=10000";
                 break;
@@ -73,10 +73,30 @@ public class InfoNameFragment extends Fragment {
                 searchUrl = "https://api.open5e.com/classes/?format=json";
                 break;
 
+            //to be googled classes
             case "Backgrounds":
-                searchUrl = "https://api.open5e.com/backgrounds/?format=json";
+                searchUrl = "https://api.open5e.com/backgrounds/?limit=10";
                 break;
 
+            case "Planes":
+                searchUrl = "https://api.open5e.com/planes/";
+                break;
+
+            case "Races":
+                searchUrl = "https://api.open5e.com/races/";
+                break;
+
+            case "Sections":
+                searchUrl = "https://api.open5e.com/sections/?limit=10";
+                break;
+
+            case "Conditions":
+                searchUrl = "https://api.open5e.com/conditions/?limit=10";
+                break;
+
+            case "Magic Items":
+                searchUrl = "https://api.open5e.com/magicitems/?limit=10";
+                break;
         }
 
         setInfoRecycler(view, searchUrl, infoType);
@@ -110,9 +130,14 @@ public class InfoNameFragment extends Fragment {
                 Results[] results = dndInfoOverview.getSpells();
                 resultsList = Arrays.asList(results);
 
-                rdb.dndInfoDao().insertAllResults(resultsList);
+                if(infoType == "Spells" || infoType == "Weapons" || infoType == "Classes"){
+                    rdb.dndInfoDao().insertAllResults(resultsList);
+                } else {
 
-                infoNameAdapter = new InfoNameRecyclerAdapter(resultsList, infoType);
+                }
+
+
+                infoNameAdapter = new InfoNameRecyclerAdapter(resultsList, infoType, view.getContext());
                 infoNameRecycler.setAdapter(infoNameAdapter);
 
             }
