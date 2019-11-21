@@ -41,6 +41,8 @@ public class QuizActivity extends AppCompatActivity {
 
     public static ArrayList<Integer> scoreHistoryList = new ArrayList<>();
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,8 +104,6 @@ public class QuizActivity extends AppCompatActivity {
                     currentQuestion = db.questionDao().getQuestion(questionNum);
 
                     setQuestion(currentQuestion, score);
-                    Toast.makeText(getApplicationContext(), "HooooooooHOo", Toast.LENGTH_LONG).show();
-
                     nextBtn.setText("Finish Quiz");
                 }
                 else {

@@ -41,6 +41,10 @@ public class InfoDetailFragment extends Fragment {
 
     private TextView weaponName;
     private TextView weaponCategory;
+    private TextView weaponCost;
+    private TextView weaponDmgDice;
+    private TextView weaponDmgType;
+    private TextView weaponWeight;
 
     private TextView className;
 
@@ -100,7 +104,6 @@ public class InfoDetailFragment extends Fragment {
                 spellSchool.setText(dbReturn.getSchool());
                 spellCircle.setText(dbReturn.getCircles());
 
-
                 break;
 
             case "Weapons":
@@ -110,10 +113,16 @@ public class InfoDetailFragment extends Fragment {
                 dbReturn = rdb.dndInfoDao().getResult(infoName);
 
                 weaponName = view.findViewById(R.id.weaponName);
-                weaponCategory = view.findViewById(R.id.weaponCat);
+                weaponCategory = view.findViewById(R.id.weaponCategory);
+                weaponCost = view.findViewById(R.id.weaponCategory);
+                weaponDmgDice = view.findViewById(R.id.weaponCategory);
+                weaponDmgType = view.findViewById(R.id.weaponCategory);
+                weaponWeight = view.findViewById(R.id.weaponCategory);
 
                 weaponName.setText(dbReturn.getName());
                 weaponCategory.setText(dbReturn.getCategory());
+
+
                 break;
 
             case "Classes":
