@@ -176,6 +176,8 @@ public class QuizActivity extends AppCompatActivity implements QuestionAsyncTask
             @Override
             public void onClick(View view) {
                 RadioGroup radioGroup = findViewById(R.id.quizOptions);
+                if (radioGroup.getCheckedRadioButtonId() == -1) {}
+                else {
                 RadioButton answer = findViewById(radioGroup.getCheckedRadioButtonId());
                 if (currentQuestion.getAnswer().equals(answer.getText())){
                     hintInclude.setVisibility(View.INVISIBLE);
@@ -210,7 +212,7 @@ public class QuizActivity extends AppCompatActivity implements QuestionAsyncTask
                 }
 
             }
-        });
+        }});
 
     }
 
