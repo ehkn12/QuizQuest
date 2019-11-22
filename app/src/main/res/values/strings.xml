@@ -13,7 +13,9 @@
     <string name="spellDuration">Duration of Spell</string>
     <string name="spellConc">Requires Concentration</string>
     <string name="spellCastTime">Casting Time</string>
+
     <string name="spellLvl">Spell Level</string>
+
     <string name="spellIntLvl">Required Intelligence Level</string>
     <string name="spellSchool">School</string>
     <string name="spellCircle">Circle</string>

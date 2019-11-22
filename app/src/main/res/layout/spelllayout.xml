@@ -28,15 +28,19 @@
         android:layout_height="0dp"
         android:background="@drawable/background_textbox2"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spellName"
-        tools:layout_editor_absoluteX="8dp">
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/spellLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:layout_marginTop="56dp"
             android:layout_marginLeft="40dp"
+
             android:layout_marginRight="56dp"
             android:layout_marginBottom="56dp"
             android:orientation="vertical">
@@ -74,6 +78,17 @@
                 android:typeface="serif"
                 android:text="TextView" />
 
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/spellHighLvl"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
@@ -88,8 +103,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+
                 android:typeface="serif"
                 android:text="TextView " />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/spellComponent"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+                android:text="TextView" />
+
 
             <TextView
                 android:id="@+id/textView4"
@@ -105,8 +132,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:typeface="serif"
-                android:text="TextView" />
+                android:text="TextView"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/spellMaterials"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
 
             <TextView
@@ -123,8 +159,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:typeface="serif"
-                android:text="TextView" />
+                android:text="TextView"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/spellRitual"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -140,8 +185,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+
                 android:typeface="serif"
                 android:text="TextView" />
+
+                android:text="TextView"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/spellDuration"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -157,8 +215,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:typeface="serif"
-                android:text="TextView" />
+                android:text="TextView"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/spellConc"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -174,8 +241,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:typeface="serif"
-                android:text="TextView" />
+                android:text="TextView"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/spellCastTime"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -223,8 +299,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:typeface="serif"
-                android:text="TextView" />
+                android:text="TextView"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/spellSchool"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView12"
@@ -240,8 +325,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:typeface="serif"
-                android:text="TextView" />
+                android:text="TextView"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/spellCircle"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
 
             <TextView
                 android:id="@+id/textView13"
@@ -257,8 +352,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:typeface="serif"
-                android:text="TextView" />
+                android:text="TextView"
+                android:typeface="serif" />
         </LinearLayout>
     </ScrollView>
 
