@@ -17,7 +17,7 @@ public abstract class ResultsDatabase extends RoomDatabase {
 
         if(instance == null){
             //TODO:: to be changed with what we learn in class in this upcoming week
-            instance = Room.databaseBuilder(context, ResultsDatabase.class, "infoDB").allowMainThreadQueries().build();
+            instance = Room.databaseBuilder(context, ResultsDatabase.class, "infoDB").build();
         }
         return instance;
     }

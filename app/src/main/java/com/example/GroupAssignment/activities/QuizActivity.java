@@ -14,6 +14,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.GroupAssignment.AsyncTask.QuestionAsyncTaskDelegate;
+import com.example.GroupAssignment.AsyncTask.QuestionInsertAsyncTask;
+import com.example.GroupAssignment.AsyncTask.QuestionRetrieveAsyncTask;
 import com.example.GroupAssignment.QuestionDatabase;
 import com.example.GroupAssignment.R;
 import com.example.GroupAssignment.models.Question;
@@ -21,7 +24,7 @@ import com.example.GroupAssignment.models.Question;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuizActivity extends AppCompatActivity {
+public class QuizActivity extends AppCompatActivity implements QuestionAsyncTaskDelegate {
 
 
     private Button scoreText;
@@ -32,6 +35,7 @@ public class QuizActivity extends AppCompatActivity {
     private Button nextBtn;
     private View hintInclude;
     private TextView hintText;
+    private QuizActivity quizActivity = this;
 
     private QuestionDatabase db;
 
@@ -45,83 +49,26 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
         ConstraintLayout quizLinearLayout = findViewById(R.id.quizLinearLayout);
         hintInclude = findViewById(R.id.hint_include);
         hintInclude.setVisibility(View.INVISIBLE);
         hintText = hintInclude.findViewById(R.id.hint_text);
+
         db = QuestionDatabase.getInstance(quizLinearLayout.getContext());
 
         questionText = quizLinearLayout.findViewById(R.id.question_text);
         scoreText = quizLinearLayout.findViewById(R.id.score_text);
+
         optionA = quizLinearLayout.findViewById(R.id.quizOptionA);
         optionB = quizLinearLayout.findViewById(R.id.quizOptionB);
         optionC = quizLinearLayout.findViewById(R.id.quizOptionC);
+
         nextBtn = quizLinearLayout.findViewById(R.id.quizNextButton);
 
 
-        //TODO: After everything else is done, we can convert the QuestionDB stuff into the AsyncTaskDelegates etc
-        // Don't uncomment this just yet, the entire part below will have to change but im not sure yet how so
-/*      QuestionInsertAsyncTask questionInsertAsyncTask = new QuestionInsertAsyncTask();
-        questionInsertAsyncTask.setQuestionDatabase(db);
-        questionInsertAsyncTask.setDelegate((AsyncTaskDelegate) quizActivity);
-        questionInsertAsyncTask.execute(getQuestionList());*/
-
-
-        db.questionDao().insertAll(getQuestionList());
-
-        currentQuestion = db.questionDao().getQuestion(questionNum);
-        setQuestion(currentQuestion, score);
-
-        nextBtn.setOnClickListener( new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view) {
-                RadioGroup radioGroup = (RadioGroup)findViewById(R.id.quizOptions);
-                RadioButton answer = (RadioButton)findViewById(radioGroup.getCheckedRadioButtonId());
-                if (currentQuestion.getAnswer().equals(answer.getText())){
-                    hintInclude.setVisibility(View.INVISIBLE);
-                    score++;
-                } else {
-                    hintText.setText(currentQuestion.getHint());
-                    hintInclude.setVisibility(View.VISIBLE);
-
-                }
-                answer.setChecked(false);
-                Toast.makeText(getApplicationContext(), Integer.toString(questionNum), Toast.LENGTH_LONG).show();
-
-                // Below code is to make sure that the button text changes to finish quiz on final question, and to
-                // record the final score in an ArrayList
-                if (questionNum < getQuestionList().size() - 2) {
-                    questionNum++;
-                    currentQuestion = db.questionDao().getQuestion(questionNum);
-
-                    setQuestion(currentQuestion, score);
-                }
-                else if (questionNum == getQuestionList().size() - 2) {
-                    questionNum++;
-                    currentQuestion = db.questionDao().getQuestion(questionNum);
-
-                    setQuestion(currentQuestion, score);
-                    Toast.makeText(getApplicationContext(), "HooooooooHOo", Toast.LENGTH_LONG).show();
-
-                    nextBtn.setText("Finish Quiz");
-                }
-                else {
-                    scoreHistoryList.add(score);
-                    //Toast to check for score at the end
-                    Toast.makeText(getApplicationContext(), Integer.toString(score), Toast.LENGTH_LONG).show();
-                    finish();
-
-
-                }
-
-
-            }
-        });
-
-
-
-
+        insertQuestionIntoDb(getQuestionList());
+        retrieveQuestionFromDb(questionNum);
 
 
     }
@@ -218,7 +165,67 @@ public class QuizActivity extends AppCompatActivity {
         return scoreHistoryList;
     }
 
+    @Override
+    public void handleQuestionReturned(Question question) {
+        currentQuestion = question;
 
+        setQuestion(currentQuestion, score);
 
+        nextBtn.setOnClickListener( new View.OnClickListener(){
 
+            @Override
+            public void onClick(View view) {
+                RadioGroup radioGroup = findViewById(R.id.quizOptions);
+                RadioButton answer = findViewById(radioGroup.getCheckedRadioButtonId());
+                if (currentQuestion.getAnswer().equals(answer.getText())){
+                    hintInclude.setVisibility(View.INVISIBLE);
+                    score++;
+                } else {
+                    hintText.setText(currentQuestion.getHint());
+                    hintInclude.setVisibility(View.VISIBLE);
+
+                }
+                answer.setChecked(false);
+                Toast.makeText(getApplicationContext(), Integer.toString(questionNum), Toast.LENGTH_LONG).show();
+
+                // Below code is to make sure that the button text changes to finish quiz on final question, and to
+                // record the final score in an ArrayList
+                if (questionNum < getQuestionList().size() - 2) {
+                    questionNum++;
+
+                    retrieveQuestionFromDb(questionNum);
+
+                }
+                else if (questionNum == getQuestionList().size() - 2) {
+                    questionNum++;
+                    retrieveQuestionFromDb(questionNum);
+
+                    nextBtn.setText("Finish Quiz");
+                }
+                else {
+                    scoreHistoryList.add(score);
+                    //Toast to check for score at the end
+                    Toast.makeText(getApplicationContext(), Integer.toString(score), Toast.LENGTH_LONG).show();
+                    finish();
+                }
+
+            }
+        });
+
+    }
+
+    public void insertQuestionIntoDb(List<Question> questionList) {
+        QuestionInsertAsyncTask questionInsertAsyncTask = new QuestionInsertAsyncTask();
+        questionInsertAsyncTask.setQuestionDatabase(db);
+        questionInsertAsyncTask.setDelegate(quizActivity);
+        questionInsertAsyncTask.execute(questionList);
+    }
+
+    public void retrieveQuestionFromDb(Integer questionNum){
+
+        QuestionRetrieveAsyncTask questionRetrieveAsyncTask = new QuestionRetrieveAsyncTask();
+        questionRetrieveAsyncTask.setQuestionDatabase(db);
+        questionRetrieveAsyncTask.setDelegate(quizActivity);
+        questionRetrieveAsyncTask.execute(questionNum);
+    }
 }

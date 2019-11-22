@@ -22,12 +22,6 @@ import java.util.List;
 
 public class InformationFragment extends Fragment {
 
-    public TextView spells;
-    public TextView weapons;
-    public TextView classes;
-
-    public String infoType;
-
     public List<String> infoList;
 
     private RecyclerView informationRecycler;
