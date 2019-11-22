@@ -160,7 +160,7 @@ public class InfoDetailFragment extends Fragment {
                 classSpellCastingAbility = view.findViewById(R.id.classSpellcastAb);
                 classSubtype = view.findViewById(R.id.classSubtype);
 
-                
+
                 className.setText(dbReturn.getName());
                 classDesc.setText(dbReturn.getDesc());
                 classHitDie.setText(dbReturn.getHit_dice());

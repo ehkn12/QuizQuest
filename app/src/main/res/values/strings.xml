@@ -3,4 +3,37 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="spellDesc">Description</string>
+    <string name="spellHighLvl">Effects at Higher Levels</string>
+    <string name="spellRange"> Range</string>
+    <string name="spellComponent">Components of Spell</string>
+    <string name="spellMaterials">Materials of Spell</string>
+    <string name="spellRitual">Requires Ritual</string>
+    <string name="spellDuration">Duration of Spell</string>
+    <string name="spellConc">Requires Concentration</string>
+    <string name="spellCastTime">Casting Time</string>
+    <string name="spellLvl">sSpell Level</string>
+    <string name="spellIntLvl">Required Intelligence Level</string>
+    <string name="spellSchool">School</string>
+    <string name="spellCircle">Circle</string>
+
+
+    <string name="wepCat">Category</string>
+    <string name="wepCost">Cost</string>
+    <string name="wepDmgDice">Weapon Damage Dice</string>
+    <string name="wepDmgType">Weapon Damage Type</string>
+    <string name="wepWeight">Weight</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </resources>
