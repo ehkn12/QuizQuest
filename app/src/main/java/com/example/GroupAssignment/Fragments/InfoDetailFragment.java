@@ -10,15 +10,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.GroupAssignment.AsyncTask.ResultsAsyncTaskDelegate;
+import com.example.GroupAssignment.AsyncTask.ResultsRetrieveAsyncTask;
 import com.example.GroupAssignment.R;
 import com.example.GroupAssignment.ResultsDatabase;
 import com.example.GroupAssignment.models.Results;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class InfoDetailFragment extends Fragment {
+
+public class InfoDetailFragment extends Fragment implements ResultsAsyncTaskDelegate {
+    private InfoDetailFragment infoDetailFragment = this;
+
     private View view;
+
     private String infoName;
     private String infoType;
 
@@ -36,8 +39,6 @@ public class InfoDetailFragment extends Fragment {
     private TextView spellIntLvl;
     private TextView spellSchool;
     private TextView spellCircle;
-
-
 
     private TextView weaponName;
     private TextView weaponCategory;
@@ -66,8 +67,8 @@ public class InfoDetailFragment extends Fragment {
 
 
 
+
     public InfoDetailFragment() {
-        // Required empty public constructor
     }
 
 
@@ -81,9 +82,37 @@ public class InfoDetailFragment extends Fragment {
         switch (infoType) {
             case "Spells":
                 view = inflater.inflate(R.layout.spelllayout, container, false);
-
                 rdb = ResultsDatabase.getInstance(view.getContext());
-                dbReturn = rdb.dndInfoDao().getResult(infoName);
+
+                retrieveResultsFromDb(infoName, rdb);
+
+                break;
+
+            case "Weapons":
+                view = inflater.inflate(R.layout.weaponlayout, container, false);
+                rdb = ResultsDatabase.getInstance(view.getContext());
+
+                retrieveResultsFromDb(infoName, rdb);
+
+                break;
+
+            case "Classes":
+                view = inflater.inflate(R.layout.classlayout, container, false);
+                rdb = ResultsDatabase.getInstance(view.getContext());
+
+                retrieveResultsFromDb(infoName, rdb);
+
+                break;
+        }
+        return view;
+    }
+
+
+    @Override
+    public void handleResultsReturned(Results results) {
+
+        switch (infoType) {
+            case "Spells":
 
                 spellName = view.findViewById(R.id.spellName);
                 spellDesc = view.findViewById(R.id.spellDesc);
@@ -100,29 +129,25 @@ public class InfoDetailFragment extends Fragment {
                 spellSchool = view.findViewById(R.id.spellSchool);
                 spellCircle = view.findViewById(R.id.spellCircles);
 
-                spellName.setText(dbReturn.getName());
-                spellDesc.setText(dbReturn.getDesc());
-                spellHighLvl.setText("Level Learnt: " + dbReturn.getHigher_level());
-                spellRange.setText("Range: " + dbReturn.getRange());
-                spellComponents.setText(dbReturn.getComponents());
-                spellMaterials.setText("Components: " +dbReturn.getMaterial());
-                spellRitual.setText("Ritual: " + dbReturn.getRitual());
-                spellDuration.setText("Duration: "+dbReturn.getDuration());
-                spellConcentration.setText("Concentration: " + dbReturn.getConcentration());
-                spellCastingTime.setText("Casting Time: " +dbReturn.getCasting_time());
-                spellLevel.setText("Spell Level: "+dbReturn.getLevel());
-                spellIntLvl.setText("Intelligence Level: "+dbReturn.getLevel_int());
-                spellSchool.setText("School: "+dbReturn.getSchool());
-                spellCircle.setText("Circle: " +dbReturn.getCircles());
+                spellName.setText(results.getName());
+                spellDesc.setText(results.getDesc());
+                spellHighLvl.setText(results.getHigher_level());
+                spellRange.setText(results.getRange());
+                spellComponents.setText(results.getComponents());
+                spellMaterials.setText(results.getMaterial());
+                spellRitual.setText(results.getRitual());
+                spellDuration.setText(results.getDuration());
+                spellConcentration.setText(results.getConcentration());
+                spellCastingTime.setText(results.getCasting_time());
+                spellLevel.setText(results.getLevel());
+                spellIntLvl.setText(results.getLevel_int());
+                spellSchool.setText(results.getSchool());
+                spellCircle.setText(results.getCircles());
 
 
                 break;
 
             case "Weapons":
-                view = inflater.inflate(R.layout.weaponlayout, container, false);
-
-                rdb = ResultsDatabase.getInstance(view.getContext());
-                dbReturn = rdb.dndInfoDao().getResult(infoName);
 
                 weaponName = view.findViewById(R.id.weaponName);
                 weaponCategory = view.findViewById(R.id.weaponCategory);
@@ -131,19 +156,15 @@ public class InfoDetailFragment extends Fragment {
                 weaponDmgType = view.findViewById(R.id.weaponDmgType);
                 weaponWeight = view.findViewById(R.id.weaponWeight);
 
-                weaponName.setText(dbReturn.getName());
-                weaponCategory.setText("Category: "+dbReturn.getCategory());
-                weaponCost.setText("Cost: "+dbReturn.getCost());
-                weaponDmgType.setText("Damage Type: "+ dbReturn.getDamage_type());
-                weaponDmgDice.setText("Damage Dice: " + dbReturn.getDamage_dice());
-                weaponWeight.setText("Weight: " + dbReturn.getWeight());
+                weaponName.setText(results.getName());
+                weaponCategory.setText(results.getCategory());
+                weaponCost.setText(results.getCost());
+                weaponDmgType.setText(results.getDamage_type());
+                weaponDmgDice.setText(results.getDamage_dice());
+                weaponWeight.setText(results.getWeight());
                 break;
 
             case "Classes":
-                view = inflater.inflate(R.layout.classlayout, container, false);
-
-                rdb = ResultsDatabase.getInstance(view.getContext());
-                dbReturn = rdb.dndInfoDao().getResult(infoName);
 
                 className = view.findViewById(R.id.className);
                 classDesc = view.findViewById(R.id.classDesc);
@@ -161,26 +182,29 @@ public class InfoDetailFragment extends Fragment {
                 classSubtype = view.findViewById(R.id.classSubtype);
 
 
-                className.setText(dbReturn.getName());
-                classDesc.setText(dbReturn.getDesc());
-                classHitDie.setText("Hit Die: " + dbReturn.getHit_dice());
-                class1stHp.setText("Initial HP: " + dbReturn.getHp_at_1st_level());
-                classHpGainPerLvl.setText("HP Gain per Level: " + dbReturn.getHp_at_higher_levels());
-                classProfArmour.setText("Armour: " + dbReturn.getProf_armor());
-                classProfWeapon.setText("Weapon: " + dbReturn.getProf_weapons());
-                classProfSavingThrow.setText("Saving Throw: " + dbReturn.getProf_saving_throws());
-                classProfSkills.setText("Skills: " + dbReturn.getProf_skills());
-                classProfTools.setText("Tools: " + dbReturn.getProf_tools());
-                classEquipment.setText("Equipment: " + dbReturn.getEquipment());
-                classTable.setText("Table: " + dbReturn.getTable());
-                classSpellCastingAbility.setText("Spell Casting Ability: " + dbReturn.getSpellcasting_ability());
-                classSubtype.setText("Subtype: " + dbReturn.getSubtypes_name());
+                className.setText(results.getName());
+                classDesc.setText(results.getDesc());
+                classHitDie.setText(results.getHit_dice());
+                class1stHp.setText(results.getHp_at_1st_level());
+                classHpGainPerLvl.setText(results.getHp_at_higher_levels());
+                classProfArmour.setText(results.getProf_armor());
+                classProfWeapon.setText(results.getProf_weapons());
+                classProfSavingThrow.setText(results.getProf_saving_throws());
+                classProfSkills.setText(results.getProf_skills());
+                classProfTools.setText(results.getProf_tools());
+                classEquipment.setText(results.getEquipment());
+                classTable.setText(results.getTable());
+                classSpellCastingAbility.setText(results.getSpellcasting_ability());
+                classSubtype.setText(results.getSubtypes_name());
                 break;
-
-
         }
-        return view;
     }
 
+    public void retrieveResultsFromDb (String string, ResultsDatabase resultsDatabase) {
+        ResultsRetrieveAsyncTask resultsRetrieveAsyncTask = new ResultsRetrieveAsyncTask();
+        resultsRetrieveAsyncTask.setResultsDatabase(resultsDatabase);
+        resultsRetrieveAsyncTask.setDelegate(infoDetailFragment);
+        resultsRetrieveAsyncTask.execute(string);
+    }
 
 }

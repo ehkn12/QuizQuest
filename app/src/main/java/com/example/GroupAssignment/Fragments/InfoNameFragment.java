@@ -18,6 +18,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.GroupAssignment.Adapters.InfoNameRecyclerAdapter;
+import com.example.GroupAssignment.AsyncTask.ResultInsertAsyncTask;
+import com.example.GroupAssignment.AsyncTask.ResultsAsyncTaskDelegate;
 import com.example.GroupAssignment.R;
 import com.example.GroupAssignment.ResultsDatabase;
 import com.example.GroupAssignment.models.*;
@@ -29,7 +31,9 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class InfoNameFragment extends Fragment {
+public class InfoNameFragment extends Fragment implements ResultsAsyncTaskDelegate {
+
+    private InfoNameFragment infoNameFragment = this;
 
     private RecyclerView infoNameRecycler;
     private RecyclerView.LayoutManager infoNameLayoutManager;
@@ -40,14 +44,10 @@ public class InfoNameFragment extends Fragment {
     private String infoType;
     private String searchUrl;
 
-    private String spellURL;
-    private String weaponURL;
-
     private List<Results> resultsList;
 
 
     public InfoNameFragment() {
-        // Required empty public constructor
     }
 
 
@@ -132,9 +132,7 @@ public class InfoNameFragment extends Fragment {
                 resultsList = Arrays.asList(results);
 
                 if(infoType == "Spells" || infoType == "Weapons" || infoType == "Classes"){
-                    rdb.dndInfoDao().insertAllResults(resultsList);
-                } else {
-
+                    insertResultsIntoDb(resultsList, rdb);
                 }
 
                 infoNameAdapter = new InfoNameRecyclerAdapter(resultsList, infoType, view.getContext());
@@ -156,4 +154,16 @@ public class InfoNameFragment extends Fragment {
         queue.add(stringRequest);
     }
 
+    public void insertResultsIntoDb(List<Results> resultsList, ResultsDatabase resultsDatabase) {
+        ResultInsertAsyncTask resultInsertAsyncTask = new ResultInsertAsyncTask();
+        resultInsertAsyncTask.setResultsDatabase(resultsDatabase);
+        resultInsertAsyncTask.setDelegate(infoNameFragment);
+        resultInsertAsyncTask.execute(resultsList);
+    }
+
+
+    @Override
+    public void handleResultsReturned(Results results) {
+
+    }
 }
