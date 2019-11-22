@@ -3,6 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="spellDesc">Description</string>
     <string name="spellHighLvl">Effects at Higher Levels</string>
     <string name="spellRange"> Range</string>
@@ -12,7 +13,9 @@
     <string name="spellDuration">Duration of Spell</string>
     <string name="spellConc">Requires Concentration</string>
     <string name="spellCastTime">Casting Time</string>
-    <string name="spellLvl">sSpell Level</string>
+
+    <string name="spellLvl">Spell Level</string>
+
     <string name="spellIntLvl">Required Intelligence Level</string>
     <string name="spellSchool">School</string>
     <string name="spellCircle">Circle</string>
@@ -23,17 +26,20 @@
     <string name="wepDmgDice">Weapon Damage Dice</string>
     <string name="wepDmgType">Weapon Damage Type</string>
     <string name="wepWeight">Weight</string>
-
-
-
-
-
-
-
-
-
-
-
+    
+    <string name="classDesc">Description</string>
+    <string name="classHitDie">Hit Die</string>
+    <string name="classHpLv1">Health at Level 1</string>
+    <string name="classHpPerLvl">Health Gain per Level</string>
+    <string name="classProfArmor">Armour Proficiencies</string>
+    <string name="classProfWep"> Weapon Proficiencies</string>
+    <string name="classProfSavThrow"> Saving Throw Proficiencies</string>
+    <string name="classSkillProf">Skill Proficiencies</string>
+    <string name="classToolProf">Tool Proficiencies</string>
+    <string name="classEquipment">Starting Equipment</string>
+    <string name="classTable">Table</string>
+    <string name="classSpellCastAb">SpellCasting Ability</string>
+    <string name="classSubtype">Subtype</string>
 
 
 </resources>
