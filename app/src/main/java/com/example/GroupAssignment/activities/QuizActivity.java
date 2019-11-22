@@ -82,6 +82,25 @@ public class QuizActivity extends AppCompatActivity implements QuestionAsyncTask
         optionC.setText(question.getOptionC());
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public List<Question> getQuestionList(){
         //TODO:: to put this somewhere that's not here
         //TODO:: add url from api, not sure we can find relevant data in our APIs for these questions

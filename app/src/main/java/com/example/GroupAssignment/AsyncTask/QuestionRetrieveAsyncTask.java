@@ -1,12 +1,13 @@
 package com.example.GroupAssignment.AsyncTask;
 
-// TODO At the end when we convert DB requests to AsyncTask we'll fill this and other AsyncTasks out
+
 
 import android.os.AsyncTask;
 
 import com.example.GroupAssignment.QuestionDatabase;
 import com.example.GroupAssignment.models.Question;
 
+//retrieving the class
 public class QuestionRetrieveAsyncTask extends AsyncTask<Integer, Integer, Question> {
 
     private QuestionAsyncTaskDelegate delegate;

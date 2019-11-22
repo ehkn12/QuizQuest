@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements SearchRecyclerFra
     @Override
     public void onResume(){
         super.onResume();
+        //display fragment depending on user finished quiz
         if (scoreHistoryList.size() != 0){
             swapFragment(scoreboardFragment);
         } else {

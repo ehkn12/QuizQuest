@@ -72,6 +72,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
 
     public void setData(ArrayList<Results> breeds) {this.data = breeds;}
 
+
+    //set text for each search result depending on category
     public void setText(Results searchAtPosition) {
         switch (searchAtPosition.getRoute()) {
             case "spells/":

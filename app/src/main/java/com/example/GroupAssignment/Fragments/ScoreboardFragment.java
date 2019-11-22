@@ -36,7 +36,6 @@ public class ScoreboardFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_scoreboard, container, false);
 
-        //TODO currently uses static method in QuizActivity not sure how to improve on that
         scoreArrayList = QuizActivity.getScoreHistory();
 
 

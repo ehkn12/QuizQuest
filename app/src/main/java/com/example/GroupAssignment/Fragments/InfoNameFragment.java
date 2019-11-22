@@ -59,8 +59,10 @@ public class InfoNameFragment extends Fragment implements ResultsAsyncTaskDelega
         Bundle bundle = this.getArguments();
         infoType = bundle.getString("infoType");
 
+        //switch to change api call depending on category
         switch (infoType)
         {
+            //classes that will display in detail
             case "Spells":
                 searchUrl = "https://api.open5e.com/spells/?format=json&limit=10000";
                 break;
@@ -106,7 +108,7 @@ public class InfoNameFragment extends Fragment implements ResultsAsyncTaskDelega
     }
 
 
-
+    //retrieving results from database via asynctask, populating adapter
     public void setInfoRecycler(final View view, String searchUrl, final String infoType) {
 
         final RequestQueue queue = Volley.newRequestQueue(getActivity());

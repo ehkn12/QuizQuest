@@ -32,14 +32,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link SearchRecyclerFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link SearchRecyclerFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class SearchRecyclerFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
@@ -48,9 +41,10 @@ public class SearchRecyclerFragment extends Fragment {
     private String mParam2;
 
     private RecyclerView recyclerView;
-    String url = "https://api.open5e.com/search/?text=";
-    ImageView search;
-    LinearLayoutManager layoutManager;
+    //url used to call api
+    private String url = "https://api.open5e.com/search/?text=";
+    private ImageView search;
+    private LinearLayoutManager layoutManager;
 
     private OnFragmentInteractionListener mListener;
 
@@ -58,15 +52,7 @@ public class SearchRecyclerFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SearchRecyclerFragment.
-     */
-    // TODO: Rename and change types and number of parameters
+
     public static SearchRecyclerFragment newInstance(String param1, String param2) {
         SearchRecyclerFragment fragment = new SearchRecyclerFragment();
         Bundle args = new Bundle();
@@ -98,7 +84,7 @@ public class SearchRecyclerFragment extends Fragment {
 
 
 
-
+        //sends request to api and displays recyclerview
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,7 +126,7 @@ public class SearchRecyclerFragment extends Fragment {
         return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);

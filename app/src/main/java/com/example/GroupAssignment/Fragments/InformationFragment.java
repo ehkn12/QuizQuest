@@ -50,6 +50,8 @@ public class InformationFragment extends Fragment {
         informationAdapter = new InformationRecyclerAdapter(infoList);
         informationRecycler.setAdapter(informationAdapter);
 
+
+        //switch fragment to search the api instead
         searchFragment = view.findViewById(R.id.button_search);
         searchFragment.setOnClickListener(new View.OnClickListener(){
             @Override
