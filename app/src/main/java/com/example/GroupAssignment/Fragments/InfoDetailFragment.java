@@ -102,18 +102,18 @@ public class InfoDetailFragment extends Fragment {
 
                 spellName.setText(dbReturn.getName());
                 spellDesc.setText(dbReturn.getDesc());
-                spellHighLvl.setText(dbReturn.getHigher_level());
-                spellRange.setText(dbReturn.getRange());
+                spellHighLvl.setText("Level Learnt: " + dbReturn.getHigher_level());
+                spellRange.setText("Range: " + dbReturn.getRange());
                 spellComponents.setText(dbReturn.getComponents());
-                spellMaterials.setText(dbReturn.getMaterial());
-                spellRitual.setText(dbReturn.getRitual());
-                spellDuration.setText(dbReturn.getDuration());
-                spellConcentration.setText(dbReturn.getConcentration());
-                spellCastingTime.setText(dbReturn.getCasting_time());
-                spellLevel.setText(dbReturn.getLevel());
-                spellIntLvl.setText(dbReturn.getLevel_int());
-                spellSchool.setText(dbReturn.getSchool());
-                spellCircle.setText(dbReturn.getCircles());
+                spellMaterials.setText("Components: " +dbReturn.getMaterial());
+                spellRitual.setText("Ritual: " + dbReturn.getRitual());
+                spellDuration.setText("Duration: "+dbReturn.getDuration());
+                spellConcentration.setText("Concentration: " + dbReturn.getConcentration());
+                spellCastingTime.setText("Casting Time: " +dbReturn.getCasting_time());
+                spellLevel.setText("Spell Level: "+dbReturn.getLevel());
+                spellIntLvl.setText("Intelligence Level: "+dbReturn.getLevel_int());
+                spellSchool.setText("School: "+dbReturn.getSchool());
+                spellCircle.setText("Circle: " +dbReturn.getCircles());
 
 
                 break;
@@ -132,11 +132,11 @@ public class InfoDetailFragment extends Fragment {
                 weaponWeight = view.findViewById(R.id.weaponWeight);
 
                 weaponName.setText(dbReturn.getName());
-                weaponCategory.setText(dbReturn.getCategory());
-                weaponCost.setText(dbReturn.getCost());
-                weaponDmgType.setText(dbReturn.getDamage_type());
-                weaponDmgDice.setText(dbReturn.getDamage_dice());
-                weaponWeight.setText(dbReturn.getWeight());
+                weaponCategory.setText("Category: "+dbReturn.getCategory());
+                weaponCost.setText("Cost: "+dbReturn.getCost());
+                weaponDmgType.setText("Damage Type: "+ dbReturn.getDamage_type());
+                weaponDmgDice.setText("Damage Dice: " + dbReturn.getDamage_dice());
+                weaponWeight.setText("Weight: " + dbReturn.getWeight());
                 break;
 
             case "Classes":
@@ -163,18 +163,18 @@ public class InfoDetailFragment extends Fragment {
                 
                 className.setText(dbReturn.getName());
                 classDesc.setText(dbReturn.getDesc());
-                classHitDie.setText(dbReturn.getHit_dice());
-                class1stHp.setText(dbReturn.getHp_at_1st_level());
-                classHpGainPerLvl.setText(dbReturn.getHp_at_higher_levels());
-                classProfArmour.setText(dbReturn.getProf_armor());
-                classProfWeapon.setText(dbReturn.getProf_weapons());
-                classProfSavingThrow.setText(dbReturn.getProf_saving_throws());
-                classProfSkills.setText(dbReturn.getProf_skills());
-                classProfTools.setText(dbReturn.getProf_tools());
-                classEquipment.setText(dbReturn.getEquipment());
-                classTable.setText(dbReturn.getTable());
-                classSpellCastingAbility.setText(dbReturn.getSpellcasting_ability());
-                classSubtype.setText(dbReturn.getSubtypes_name());
+                classHitDie.setText("Hit Die: " + dbReturn.getHit_dice());
+                class1stHp.setText("Initial HP: " + dbReturn.getHp_at_1st_level());
+                classHpGainPerLvl.setText("HP Gain per Level: " + dbReturn.getHp_at_higher_levels());
+                classProfArmour.setText("Armour: " + dbReturn.getProf_armor());
+                classProfWeapon.setText("Weapon: " + dbReturn.getProf_weapons());
+                classProfSavingThrow.setText("Saving Throw: " + dbReturn.getProf_saving_throws());
+                classProfSkills.setText("Skills: " + dbReturn.getProf_skills());
+                classProfTools.setText("Tools: " + dbReturn.getProf_tools());
+                classEquipment.setText("Equipment: " + dbReturn.getEquipment());
+                classTable.setText("Table: " + dbReturn.getTable());
+                classSpellCastingAbility.setText("Spell Casting Ability: " + dbReturn.getSpellcasting_ability());
+                classSubtype.setText("Subtype: " + dbReturn.getSubtypes_name());
                 break;
 
 
