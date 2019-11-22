@@ -84,16 +84,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/spellHighLvl"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text="@string/spellRange"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -105,18 +95,12 @@
                 android:layout_marginTop="5dp"
 
                 android:typeface="serif"
-                android:text="TextView " />
+                android:text="TextView " /><![CDATA[
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/spellComponent"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-                android:text="TextView" />
+            android:text="TextView" />
 
+
+            ]]>
 
             <TextView
                 android:id="@+id/textView4"
@@ -134,15 +118,6 @@
                 android:layout_marginTop="5dp"
                 android:text="TextView"
                 android:typeface="serif" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/spellMaterials"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
 
             <TextView
@@ -172,34 +147,18 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/spellRitual"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
                 android:id="@+id/spellRitualCheck"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
 
                 android:typeface="serif"
-                android:text="TextView" />
+                android:text="TextView" /><![CDATA[
 
                 android:text="TextView"
                 android:typeface="serif" />
 
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/spellDuration"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+            ]]>
 
             <TextView
                 android:id="@+id/textView7"
@@ -228,30 +187,12 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/spellConc"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
                 android:id="@+id/spellConcentrationCheck"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="TextView"
                 android:typeface="serif" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/spellCastTime"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -312,30 +253,12 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/spellSchool"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
                 android:id="@+id/spellSchool"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="TextView"
                 android:typeface="serif" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/spellCircle"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
 
             <TextView
